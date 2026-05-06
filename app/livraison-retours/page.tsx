@@ -26,10 +26,10 @@ export default function LivraisonRetoursPage() {
               </thead>
               <tbody className="divide-y divide-charbon/8">
                 {[
-                  ["Québec", "2-4 jours ouvrables", "Calculé au checkout"],
-                  ["Canada", "3-7 jours ouvrables", "Calculé au checkout"],
-                  ["États-Unis", "5-10 jours ouvrables", "Calculé au checkout"],
-                  ["International", "10-20 jours ouvrables", "Calculé au checkout"],
+                  ["Québec", "2-4 jours ouvrables", "3,00 CAD"],
+                  ["Canada", "3-7 jours ouvrables", "3,00 CAD"],
+                  ["États-Unis", "5-10 jours ouvrables", "3,00 CAD"],
+                  ["International", "10-20 jours ouvrables", "3,00 CAD"],
                   ["Livraison gratuite (Canada)", "3-7 jours", "Gratuit dès 100 CAD"],
                 ].map(([dest, delai, tarif]) => (
                   <tr key={dest}>

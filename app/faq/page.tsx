@@ -54,7 +54,7 @@ const sections = [
       },
       {
         q: "Y a-t-il un seuil de livraison gratuite ?",
-        a: "Oui : livraison gratuite au Canada pour toute commande de 100 CAD et plus.",
+        a: "La livraison est à 3 CAD partout. Gratuite au Canada dès 100 CAD d'achat. Le ramassage local à Sainte-Brigitte-de-Laval est toujours gratuit.",
       },
       {
         q: "Comment fonctionne le ramassage local ?",

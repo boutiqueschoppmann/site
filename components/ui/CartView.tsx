@@ -1,11 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useCart } from "@/lib/cart";
 
 export default function CartView() {
   const { items, removeFromCart, updateQuantity, totalItems, totalPrice } = useCart();
+  const [pickup, setPickup] = useState(false);
 
   if (items.length === 0) {
     return (
@@ -31,7 +33,7 @@ export default function CartView() {
     );
   }
 
-  const shipping = totalPrice >= 100 ? 0 : 9.95;
+  const shipping = pickup ? 0 : totalPrice >= 100 ? 0 : 3;
   const taxes = +(totalPrice * 0.14975).toFixed(2);
   const total = +(totalPrice + shipping + taxes).toFixed(2);
 
@@ -124,6 +126,20 @@ export default function CartView() {
           <div className="border border-charbon/10 p-6 flex flex-col gap-5 sticky top-32">
             <h2 className="font-display text-xl text-charbon">Récapitulatif</h2>
 
+            {/* Option ramassage local */}
+            <label className="flex items-start gap-3 cursor-pointer border border-charbon/10 p-4 hover:border-charbon/25 transition-colors">
+              <input
+                type="checkbox"
+                checked={pickup}
+                onChange={(e) => setPickup(e.target.checked)}
+                className="mt-0.5 accent-charbon"
+              />
+              <div>
+                <p className="text-sm text-charbon font-medium">Ramassage local — Gratuit</p>
+                <p className="text-xs text-charbon/50 mt-0.5">Sainte-Brigitte-de-Laval, QC · Sur rendez-vous</p>
+              </div>
+            </label>
+
             <div className="flex flex-col gap-3 text-sm">
               <div className="flex justify-between text-charbon/70">
                 <span>Sous-total</span>
@@ -133,7 +149,7 @@ export default function CartView() {
                 <span>Livraison</span>
                 <span className="font-mono">
                   {shipping === 0 ? (
-                    <span className="text-cuir">Gratuite</span>
+                    <span className="text-cuir">{pickup ? "Ramassage" : "Gratuite"}</span>
                   ) : (
                     `${shipping.toFixed(2)} CAD`
                   )}
@@ -143,7 +159,7 @@ export default function CartView() {
                 <span>TPS/TVQ (14,975%)</span>
                 <span className="font-mono">{taxes.toFixed(2)} CAD</span>
               </div>
-              {shipping > 0 && (
+              {!pickup && shipping > 0 && (
                 <p className="text-xs text-charbon/40 font-mono">
                   Livraison gratuite dès 100 CAD
                 </p>

@@ -18,7 +18,6 @@ const links = {
     { label: "Livraison & retours", href: "/livraison-retours" },
     { label: "CGV", href: "/cgv" },
     { label: "Politique de confidentialité", href: "/politique-confidentialite" },
-    { label: "Loi 25", href: "/loi-25" },
   ],
 };
 

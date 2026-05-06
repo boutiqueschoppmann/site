@@ -2,7 +2,7 @@ import { products } from "@/lib/products";
 import ProductCard from "@/components/ui/ProductCard";
 import Link from "next/link";
 
-const slugs = ["crayon-infini-boite-3d", "crayon-infini-cuir", "crayon-hybride-boite-3d", "pack-5-mines"];
+const slugs = ["crayon-infini-boite-3d", "crayon-hybride-boite-3d", "crayon-golf-boite-3d", "pack-5-mines"];
 const bestsellers = slugs
   .map((s) => products.find((p) => p.slug === s))
   .filter(Boolean) as typeof products;

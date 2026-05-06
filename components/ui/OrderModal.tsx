@@ -83,9 +83,9 @@ export default function OrderModal({
       <div className="absolute inset-0 bg-charbon/50 backdrop-blur-sm" onClick={onClose} />
 
       {/* Panel */}
-      <div className="relative bg-lin w-full md:max-w-2xl md:mx-4 max-h-[92vh] overflow-y-auto">
+      <div className="relative bg-[#F5F2EC] w-full md:max-w-2xl md:mx-4 max-h-[92vh] overflow-y-auto">
         {/* Header */}
-        <div className="sticky top-0 bg-lin border-b border-charbon/10 px-6 py-4 flex items-center justify-between">
+        <div className="sticky top-0 bg-[#F5F2EC] border-b border-charbon/10 px-6 py-4 flex items-center justify-between">
           <h2 className="font-display text-xl text-charbon">Commander par courriel</h2>
           <button onClick={onClose} className="text-charbon/40 hover:text-charbon transition-colors text-2xl leading-none">×</button>
         </div>
@@ -107,7 +107,7 @@ export default function OrderModal({
         ) : (
           <form onSubmit={handleSubmit} className="px-6 py-6 flex flex-col gap-6">
             {/* Récap commande */}
-            <div className="bg-charbon/4 border border-charbon/10 p-4 flex flex-col gap-2">
+            <div className="bg-charbon/[0.04] border border-charbon/15 p-4 flex flex-col gap-2">
               <p className="text-xs text-charbon/40 tracking-widest uppercase font-mono mb-1">Récapitulatif</p>
               {items.map((item) => (
                 <div key={item.slug} className="flex justify-between text-sm">
@@ -159,7 +159,7 @@ export default function OrderModal({
                       placeholder="Jusqu'à 20 caractères"
                       value={gravureTexts[item.slug] ?? ""}
                       onChange={(e) => setGravureTexts((prev) => ({ ...prev, [item.slug]: e.target.value }))}
-                      className="w-full border border-charbon/20 bg-transparent px-3 py-2 text-sm text-charbon placeholder:text-charbon/30 focus:outline-none focus:border-charbon/50 font-mono"
+                      className="w-full border border-charbon/20 bg-[#F5F2EC] px-3 py-2 text-sm text-charbon placeholder:text-charbon/30 focus:outline-none focus:border-charbon/50 font-mono"
                     />
                     <p className="text-xs text-charbon/30 mt-1 font-mono">
                       {(gravureTexts[item.slug] ?? "").length}/20 caractères
@@ -179,7 +179,7 @@ export default function OrderModal({
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full border border-charbon/20 bg-transparent px-3 py-2 text-sm text-charbon placeholder:text-charbon/30 focus:outline-none focus:border-charbon/50"
+                  className="w-full border border-charbon/20 bg-[#F5F2EC] px-3 py-2 text-sm text-charbon placeholder:text-charbon/30 focus:outline-none focus:border-charbon/50"
                   placeholder="Prénom Nom"
                 />
               </div>
@@ -190,7 +190,7 @@ export default function OrderModal({
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full border border-charbon/20 bg-transparent px-3 py-2 text-sm text-charbon placeholder:text-charbon/30 focus:outline-none focus:border-charbon/50"
+                  className="w-full border border-charbon/20 bg-[#F5F2EC] px-3 py-2 text-sm text-charbon placeholder:text-charbon/30 focus:outline-none focus:border-charbon/50"
                   placeholder="vous@exemple.com"
                 />
               </div>
@@ -200,7 +200,7 @@ export default function OrderModal({
                   type="tel"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  className="w-full border border-charbon/20 bg-transparent px-3 py-2 text-sm text-charbon placeholder:text-charbon/30 focus:outline-none focus:border-charbon/50"
+                  className="w-full border border-charbon/20 bg-[#F5F2EC] px-3 py-2 text-sm text-charbon placeholder:text-charbon/30 focus:outline-none focus:border-charbon/50"
                   placeholder="514 000-0000"
                 />
               </div>
@@ -216,7 +216,7 @@ export default function OrderModal({
                       required
                       value={address}
                       onChange={(e) => setAddress(e.target.value)}
-                      className="w-full border border-charbon/20 bg-transparent px-3 py-2 text-sm text-charbon placeholder:text-charbon/30 focus:outline-none focus:border-charbon/50"
+                      className="w-full border border-charbon/20 bg-[#F5F2EC] px-3 py-2 text-sm text-charbon placeholder:text-charbon/30 focus:outline-none focus:border-charbon/50"
                       placeholder="123 rue des Érables"
                     />
                   </div>
@@ -228,7 +228,7 @@ export default function OrderModal({
                         required
                         value={city}
                         onChange={(e) => setCity(e.target.value)}
-                        className="w-full border border-charbon/20 bg-transparent px-3 py-2 text-sm text-charbon placeholder:text-charbon/30 focus:outline-none focus:border-charbon/50"
+                        className="w-full border border-charbon/20 bg-[#F5F2EC] px-3 py-2 text-sm text-charbon placeholder:text-charbon/30 focus:outline-none focus:border-charbon/50"
                         placeholder="Montréal"
                       />
                     </div>
@@ -239,7 +239,7 @@ export default function OrderModal({
                         required
                         value={postal}
                         onChange={(e) => setPostal(e.target.value)}
-                        className="w-full border border-charbon/20 bg-transparent px-3 py-2 text-sm text-charbon placeholder:text-charbon/30 focus:outline-none focus:border-charbon/50 font-mono"
+                        className="w-full border border-charbon/20 bg-[#F5F2EC] px-3 py-2 text-sm text-charbon placeholder:text-charbon/30 focus:outline-none focus:border-charbon/50 font-mono"
                         placeholder="H2X 1Y6"
                       />
                     </div>
@@ -253,7 +253,7 @@ export default function OrderModal({
                   rows={3}
                   value={note}
                   onChange={(e) => setNote(e.target.value)}
-                  className="w-full border border-charbon/20 bg-transparent px-3 py-2 text-sm text-charbon placeholder:text-charbon/30 focus:outline-none focus:border-charbon/50 resize-none"
+                  className="w-full border border-charbon/20 bg-[#F5F2EC] px-3 py-2 text-sm text-charbon placeholder:text-charbon/30 focus:outline-none focus:border-charbon/50 resize-none"
                   placeholder="Informations complémentaires, délai souhaité…"
                 />
               </div>

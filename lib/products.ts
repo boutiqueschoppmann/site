@@ -79,7 +79,7 @@ export const products: Product[] = [
     imageAlt: "Crayon Hybride Schoppmann, pointe encre bleue visible",
     gallery: [
       { src: "/images/products/crayon-hybride.png", alt: "Crayon Hybride Schoppmann — vue studio pointe encre bleue" },
-      { src: "/images/products/pointe-stylo.png", alt: "Gros plan cartouche encre bleue crayon hybride" },
+      { src: "/images/products/mine-stylo-montee.png", alt: "Mine stylo montée sur crayon hybride" },
       { src: "/images/products/mine-down.png", alt: "Gros plan pointe mine infinie fond sombre" },
       { src: "/images/products/kit-mines.png", alt: "Crayon Schoppmann avec mines de rechange" },
     ],

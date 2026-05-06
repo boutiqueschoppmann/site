@@ -40,11 +40,11 @@ export default function Footer() {
             Crayons réutilisables usinés à la main à Sainte-Brigitte-de-Laval, Québec.
           </p>
           <div className="flex gap-4 mt-2">
-            <SocialLink href="https://instagram.com" label="Instagram">
+            <SocialLink href="https://instagram.com/crayon_schoppmann" label="Instagram @crayon_schoppmann">
               <InstagramIcon />
             </SocialLink>
-            <SocialLink href="https://linkedin.com" label="LinkedIn">
-              <LinkedInIcon />
+            <SocialLink href="https://tiktok.com/@schoppmann" label="TikTok @schoppmann">
+              <TikTokIcon />
             </SocialLink>
           </div>
         </div>
@@ -124,12 +124,10 @@ function InstagramIcon() {
   );
 }
 
-function LinkedInIcon() {
+function TikTokIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" />
-      <rect x="2" y="9" width="4" height="12" />
-      <circle cx="4" cy="4" r="2" />
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.87a8.18 8.18 0 004.78 1.52V7a4.85 4.85 0 01-1.01-.31z" />
     </svg>
   );
 }

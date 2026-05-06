@@ -81,7 +81,6 @@ export const products: Product[] = [
       { src: "/images/products/crayon-hybride.png", alt: "Crayon Hybride Schoppmann — vue studio pointe encre bleue" },
       { src: "/images/products/pointe-stylo.png", alt: "Gros plan cartouche encre bleue crayon hybride" },
       { src: "/images/products/mine-down.png", alt: "Gros plan pointe mine infinie fond sombre" },
-      { src: "/images/products/mines-pack.png", alt: "Mines de rechange incluses" },
     ],
     href: "/produits/crayon-hybride-boite-3d",
     includes: [

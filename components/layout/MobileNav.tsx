@@ -24,7 +24,7 @@ export default function MobileNav() {
       className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-lin/95 backdrop-blur-sm border-t border-charbon/10"
       style={{ paddingBottom: "env(safe-area-inset-bottom, 8px)" }}
     >
-      <div className="flex items-stretch h-14">
+      <div className="flex items-stretch h-12">
         {items.map(({ label, href, icon: Icon }) => {
           const active = isActive(href, pathname);
           return (

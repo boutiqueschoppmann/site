@@ -72,6 +72,15 @@ export default function Header() {
 
         {/* Actions */}
         <div className="flex items-center md:self-end md:pb-2">
+          {/* Contact mobile */}
+          <Link
+            href="/contact"
+            className="md:hidden p-2 text-charbon/60 hover:text-charbon transition-colors"
+            aria-label="Contact"
+          >
+            <MailIcon />
+          </Link>
+
           {/* Panier mobile */}
           <Link
             href="/panier"
@@ -109,10 +118,19 @@ export default function Header() {
 
 function CartIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
       <line x1="3" y1="6" x2="21" y2="6" />
       <path d="M16 10a4 4 0 01-8 0" />
+    </svg>
+  );
+}
+
+function MailIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <rect x="2" y="4" width="20" height="16" rx="2" />
+      <polyline points="2,4 12,13 22,4" />
     </svg>
   );
 }

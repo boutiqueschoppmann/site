@@ -87,10 +87,9 @@ export default function Header() {
           </Link>
 
           {/* Panier desktop */}
-          <div className="hidden md:flex">
           <Link
             href="/panier"
-            className="group inline-flex items-center gap-2 text-sm border border-charbon px-4 py-2 hover:bg-charbon hover:text-lin transition-all duration-200"
+            className="group hidden md:inline-flex items-center gap-2 text-sm border border-charbon px-4 py-2 hover:bg-charbon hover:text-lin transition-all duration-200"
           >
             <CartIcon />
             Panier
@@ -104,7 +103,6 @@ export default function Header() {
           </Link>
         </div>
       </div>
-
     </header>
   );
 }

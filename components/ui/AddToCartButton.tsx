@@ -3,7 +3,7 @@
 import { useCart } from "@/lib/cart";
 import type { Product } from "@/lib/products";
 
-export default function AddToCartButton({ product }: { product: Product }) {
+export default function AddToCartButton({ product, gravure = false }: { product: Product; gravure?: boolean }) {
   const { addToCart, updateQuantity, items } = useCart();
   const item = items.find((i) => i.slug === product.slug);
   const quantity = item?.quantity ?? 0;
@@ -11,7 +11,7 @@ export default function AddToCartButton({ product }: { product: Product }) {
   if (quantity === 0) {
     return (
       <button
-        onClick={() => addToCart(product)}
+        onClick={() => addToCart(product, gravure)}
         className="flex-1 bg-charbon text-lin py-4 px-6 text-sm tracking-wide hover:bg-charbon/80 transition-all duration-200"
       >
         Ajouter au panier
@@ -35,7 +35,7 @@ export default function AddToCartButton({ product }: { product: Product }) {
         </span>
       </div>
       <button
-        onClick={() => addToCart(product)}
+        onClick={() => addToCart(product, gravure)}
         className="w-12 flex items-center justify-center text-charbon text-xl hover:bg-charbon/8 transition-colors border-l border-charbon/20 flex-shrink-0"
         aria-label="Augmenter la quantité"
       >

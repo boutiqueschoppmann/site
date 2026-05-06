@@ -4,7 +4,7 @@ import Link from "next/link";
 import { products, collectionLabels } from "@/lib/products";
 import ProductGallery from "@/components/ui/ProductGallery";
 import ProductCard from "@/components/ui/ProductCard";
-import AddToCartButton from "@/components/ui/AddToCartButton";
+import ProductActions from "@/components/ui/ProductActions";
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
@@ -121,21 +121,7 @@ export default async function ProductPage({
             ))}
           </div>
 
-          {/* CTA */}
-          <div className="flex flex-col sm:flex-row gap-3 pt-2">
-            <AddToCartButton product={product} />
-            <Link
-              href="/contact"
-              className="flex-1 text-center border border-charbon/20 text-charbon py-4 px-6 text-sm hover:border-charbon/50 transition-colors"
-            >
-              Commander par courriel
-            </Link>
-          </div>
-
-          {/* Livraison */}
-          <p className="text-xs text-charbon/40 text-center">
-            Livraison Postes Canada · Ramassage gratuit à Sainte-Brigitte-de-Laval
-          </p>
+          <ProductActions product={product} />
         </div>
       </div>
 

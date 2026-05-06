@@ -10,11 +10,12 @@ export interface CartItem {
   price: number;
   image: string;
   quantity: number;
+  gravure: boolean;
 }
 
 interface CartContextType {
   items: CartItem[];
-  addToCart: (product: Product) => void;
+  addToCart: (product: Product, gravure?: boolean) => void;
   removeFromCart: (slug: string) => void;
   updateQuantity: (slug: string, qty: number) => void;
   clearCart: () => void;
@@ -31,7 +32,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     try {
       const stored = localStorage.getItem("schoppmann-cart");
-      if (stored) setItems(JSON.parse(stored));
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        setItems(parsed.map((item: CartItem) => ({ ...item, gravure: item.gravure ?? false })));
+      }
     } catch {}
     setHydrated(true);
   }, []);
@@ -42,7 +46,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     }
   }, [items, hydrated]);
 
-  const addToCart = (product: Product) => {
+  const addToCart = (product: Product, gravure = false) => {
     setItems((prev) => {
       const existing = prev.find((i) => i.slug === product.slug);
       if (existing) {
@@ -59,6 +63,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
           price: product.price,
           image: product.image,
           quantity: 1,
+          gravure,
         },
       ];
     });
@@ -81,7 +86,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const clearCart = () => setItems([]);
 
   const totalItems = items.reduce((sum, i) => sum + i.quantity, 0);
-  const totalPrice = items.reduce((sum, i) => sum + i.price * i.quantity, 0);
+  const totalPrice = items.reduce((sum, i) => sum + (i.price + (i.gravure ? 8 : 0)) * i.quantity, 0);
 
   return (
     <CartContext.Provider

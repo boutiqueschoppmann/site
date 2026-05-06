@@ -34,9 +34,11 @@ export default function CartView() {
     );
   }
 
-  const shipping = pickup ? 0 : totalPrice >= 100 ? 0 : 3;
-  const taxes = +(totalPrice * 0.14975).toFixed(2);
-  const total = +(totalPrice + shipping + taxes).toFixed(2);
+  const pickupDiscount = pickup ? +(totalPrice * 0.05).toFixed(2) : 0;
+  const discountedSubtotal = +(totalPrice - pickupDiscount).toFixed(2);
+  const shipping = pickup ? 0 : discountedSubtotal >= 100 ? 0 : 3;
+  const taxes = +((discountedSubtotal + shipping) * 0.14975).toFixed(2);
+  const total = +(discountedSubtotal + shipping + taxes).toFixed(2);
 
   return (
     <div className="pt-16 md:pt-28 bg-lin min-h-screen">
@@ -84,9 +86,12 @@ export default function CartView() {
                       {item.tagline && (
                         <p className="text-charbon/40 text-sm">{item.tagline}</p>
                       )}
+                      {item.gravure && (
+                        <p className="text-xs text-cuir font-mono mt-0.5">+ Gravure laser</p>
+                      )}
                     </div>
                     <span className="font-mono text-charbon text-sm flex-shrink-0">
-                      {(item.price * item.quantity).toFixed(2)} CAD
+                      {((item.price + (item.gravure ? 8 : 0)) * item.quantity).toFixed(2)} CAD
                     </span>
                   </div>
 
@@ -155,6 +160,12 @@ export default function CartView() {
                 <span>Sous-total</span>
                 <span className="font-mono">{totalPrice.toFixed(2)} CAD</span>
               </div>
+              {pickupDiscount > 0 && (
+                <div className="flex justify-between text-cuir">
+                  <span>Remise ramassage (−5%)</span>
+                  <span className="font-mono">−{pickupDiscount.toFixed(2)} CAD</span>
+                </div>
+              )}
               <div className="flex justify-between text-charbon/70">
                 <span>Livraison</span>
                 <span className="font-mono">

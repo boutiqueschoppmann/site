@@ -30,10 +30,10 @@ export default function GolfPage() {
           </h1>
           <div className="flex gap-6 text-sm text-lin/60 mt-6">
             <div>
-              <span className="font-mono text-xl text-lin block">25 CAD</span>Boîte hexagonale 3D
+              <span className="font-mono text-xl text-lin block">17 CAD</span>Boîte hexagonale 3D
             </div>
             <div className="border-l border-lin/20 pl-6">
-              <span className="font-mono text-xl text-lin block">35 CAD</span>Case cuir
+              <span className="font-mono text-xl text-lin block">31 CAD</span>Case cuir
             </div>
           </div>
         </div>

@@ -40,7 +40,7 @@ export default function Footer() {
             Crayons réutilisables usinés à la main à Sainte-Brigitte-de-Laval, Québec.
           </p>
           <div className="flex gap-4 mt-2">
-            <SocialLink href="https://instagram.com/crayon_schoppmann" label="Instagram @crayon_schoppmann">
+            <SocialLink href="https://instagram.com/crayon.schoppmann" label="Instagram @crayon.schoppmann">
               <InstagramIcon />
             </SocialLink>
             <SocialLink href="https://tiktok.com/@schoppmann" label="TikTok @schoppmann">

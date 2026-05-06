@@ -72,7 +72,8 @@ export default function Header() {
         </nav>
 
         {/* Actions */}
-        <div className="flex gap-4 md:self-end md:pb-2">
+        <div className="flex items-center gap-3 md:self-end md:pb-2">
+          {/* Panier desktop */}
           <Link
             href="/panier"
             className="group hidden md:inline-flex items-center gap-2 text-sm border border-charbon px-4 py-2 hover:bg-charbon hover:text-lin transition-all duration-200"
@@ -88,9 +89,23 @@ export default function Header() {
             )}
           </Link>
 
+          {/* Panier mobile */}
+          <Link
+            href="/panier"
+            className="md:hidden relative p-2 text-charbon"
+            aria-label="Panier"
+          >
+            <CartIcon />
+            {totalItems > 0 && (
+              <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-cuir text-lin text-[10px] font-mono flex items-center justify-center rounded-full">
+                {totalItems > 9 ? "9+" : totalItems}
+              </span>
+            )}
+          </Link>
+
           {/* Burger mobile */}
           <button
-            className="md:hidden flex flex-col gap-1.5 w-6"
+            className="md:hidden flex flex-col gap-1.5 w-6 p-1"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Menu"
           >
@@ -125,6 +140,19 @@ export default function Header() {
               </Link>
             );
           })}
+          <div className="border-t border-charbon/10 mt-3 pt-3">
+            <Link
+              href="/panier"
+              onClick={() => setMenuOpen(false)}
+              className="flex items-center gap-3 py-3 pl-4 text-base text-charbon/60 hover:text-charbon transition-colors"
+            >
+              <CartIcon />
+              Panier
+              {totalItems > 0 && (
+                <span className="font-mono text-xs text-cuir">({totalItems})</span>
+              )}
+            </Link>
+          </div>
         </nav>
       </div>
     </header>

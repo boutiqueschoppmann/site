@@ -40,7 +40,7 @@ export default function CadeauxEntreprisesPage() {
           </p>
         </div>
         <div className="relative aspect-square overflow-hidden bg-charbon/5">
-          <Image src="/images/products/crayon-steve-lavoie.png" alt="Crayon Schoppmann gravé Steeve Lavoie dans étui cuir rouge" fill className="object-cover" sizes="600px" />
+          <Image src="/images/photo_plateau_corporate_crayons.png" alt="Plateau corporate crayons Schoppmann" fill className="object-cover" sizes="600px" />
         </div>
       </section>
 

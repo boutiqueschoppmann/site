@@ -1,12 +1,28 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import AddToCartButton from "./AddToCartButton";
+import OrderModal from "./OrderModal";
 import type { Product } from "@/lib/products";
 
 export default function ProductActions({ product }: { product: Product }) {
   const [gravure, setGravure] = useState(false);
+  const [orderOpen, setOrderOpen] = useState(false);
+
+  const unitPrice = product.price + (gravure ? 8 : 0);
+  const shipping = unitPrice >= 100 ? 0 : 3;
+  const taxes = +((unitPrice + shipping) * 0.14975).toFixed(2);
+  const total = +(unitPrice + shipping + taxes).toFixed(2);
+
+  const singleItem = [{
+    slug: product.slug,
+    name: product.name,
+    tagline: product.tagline,
+    price: product.price,
+    image: product.image,
+    quantity: 1,
+    gravure,
+  }];
 
   return (
     <div className="flex flex-col gap-4 pt-2">
@@ -28,18 +44,30 @@ export default function ProductActions({ product }: { product: Product }) {
       {/* CTA */}
       <div className="flex flex-col sm:flex-row gap-3">
         <AddToCartButton product={product} gravure={gravure} />
-        <Link
-          href="/contact"
+        <button
+          onClick={() => setOrderOpen(true)}
           className="flex-1 text-center border border-charbon/20 text-charbon py-4 px-6 text-sm hover:border-charbon/50 transition-colors"
         >
           Commander par courriel
-        </Link>
+        </button>
       </div>
 
       {/* Livraison */}
       <p className="text-xs text-charbon/40 text-center">
         Livraison 3 CAD · Ramassage gratuit à Sainte-Brigitte-de-Laval, Montréal ou Québec
       </p>
+
+      <OrderModal
+        isOpen={orderOpen}
+        onClose={() => setOrderOpen(false)}
+        items={singleItem}
+        pickupLocation={null}
+        pickupDiscount={0}
+        discountedSubtotal={unitPrice}
+        shipping={shipping}
+        taxes={taxes}
+        total={total}
+      />
     </div>
   );
 }

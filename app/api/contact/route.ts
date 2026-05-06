@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const { name, email, message, type, company, quantity, product, customization, deadline,
-            phone, items, gravureTexts, pickupLocation, pickupDiscount, discountedSubtotal, shipping, taxes, total, note } = body;
+            phone, address, items, gravureTexts, pickupLocation, pickupDiscount, discountedSubtotal, shipping, taxes, total, note } = body;
 
     if (!name || !email) {
       return NextResponse.json({ error: "Champs requis manquants." }, { status: 400 });
@@ -50,6 +50,7 @@ export async function POST(req: NextRequest) {
           <tr><td><b>Courriel</b></td><td><a href="mailto:${email}">${email}</a></td></tr>
           ${phone ? `<tr><td><b>Téléphone</b></td><td>${phone}</td></tr>` : ""}
           <tr><td><b>Livraison</b></td><td>${pickupLocation ? `Ramassage — ${pickupLocation}` : shipping === 0 ? "Livraison gratuite" : `Livraison standard (${Number(shipping).toFixed(2)} CAD)`}</td></tr>
+          ${!pickupLocation && address ? `<tr><td><b>Adresse</b></td><td>${address.street}<br/>${address.city} ${address.postal}</td></tr>` : ""}
         </table>
         <h3 style="font-family:Georgia,serif">Articles</h3>
         <table cellpadding="6" border="1" cellspacing="0" style="font-family:monospace;font-size:13px;border-collapse:collapse;width:100%">

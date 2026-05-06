@@ -31,6 +31,9 @@ export default function OrderModal({
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [postal, setPostal] = useState("");
   const [gravureTexts, setGravureTexts] = useState<Record<string, string>>({});
   const [note, setNote] = useState("");
   const [loading, setLoading] = useState(false);
@@ -53,6 +56,7 @@ export default function OrderModal({
           name,
           email,
           phone,
+          address: pickupLocation ? null : { street: address, city, postal },
           items,
           gravureTexts,
           pickupLocation,
@@ -200,6 +204,49 @@ export default function OrderModal({
                   placeholder="514 000-0000"
                 />
               </div>
+
+              {/* Adresse de livraison — seulement si pas de ramassage */}
+              {!pickupLocation && (
+                <div className="flex flex-col gap-3 border border-charbon/10 p-4">
+                  <p className="text-xs text-charbon/40 tracking-widest uppercase font-mono">Adresse de livraison</p>
+                  <div>
+                    <label className="block text-sm text-charbon mb-1">Rue et numéro <span className="text-cuir">*</span></label>
+                    <input
+                      type="text"
+                      required
+                      value={address}
+                      onChange={(e) => setAddress(e.target.value)}
+                      className="w-full border border-charbon/20 bg-transparent px-3 py-2 text-sm text-charbon placeholder:text-charbon/30 focus:outline-none focus:border-charbon/50"
+                      placeholder="123 rue des Érables"
+                    />
+                  </div>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-sm text-charbon mb-1">Ville <span className="text-cuir">*</span></label>
+                      <input
+                        type="text"
+                        required
+                        value={city}
+                        onChange={(e) => setCity(e.target.value)}
+                        className="w-full border border-charbon/20 bg-transparent px-3 py-2 text-sm text-charbon placeholder:text-charbon/30 focus:outline-none focus:border-charbon/50"
+                        placeholder="Montréal"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm text-charbon mb-1">Code postal <span className="text-cuir">*</span></label>
+                      <input
+                        type="text"
+                        required
+                        value={postal}
+                        onChange={(e) => setPostal(e.target.value)}
+                        className="w-full border border-charbon/20 bg-transparent px-3 py-2 text-sm text-charbon placeholder:text-charbon/30 focus:outline-none focus:border-charbon/50 font-mono"
+                        placeholder="H2X 1Y6"
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
+
               <div>
                 <label className="block text-sm text-charbon mb-1">Note <span className="text-charbon/30 text-xs">(optionnel)</span></label>
                 <textarea

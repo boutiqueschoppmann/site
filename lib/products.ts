@@ -27,11 +27,11 @@ export const products: Product[] = [
     image: "/images/products/crayon-infini.png",
     imageAlt: "Crayon Schoppmann mine infinie aluminium sur fond sombre",
     gallery: [
-      { src: "/images/products/4-crayons-schoppmann-inclines.png", alt: "4 crayons Schoppmann aluminium inclinés" },
-      { src: "/images/products/4-crayons-schoppmann.png", alt: "4 crayons Schoppmann aluminium vue de profil" },
       { src: "/images/products/crayon-infini.png", alt: "Crayon Infini Schoppmann — vue studio" },
       { src: "/images/products/mine-down.png", alt: "Gros plan pointe mine infinie, fond sombre" },
       { src: "/images/products/mine-up.png", alt: "Gros plan pointe mine infinie, fond clair" },
+      { src: "/images/products/4-crayons-schoppmann-inclines.png", alt: "4 crayons Schoppmann aluminium inclinés" },
+      { src: "/images/products/4-crayons-schoppmann.png", alt: "4 crayons Schoppmann aluminium vue de profil" },
     ],
     href: "/produits/crayon-infini-boite-3d",
     includes: [

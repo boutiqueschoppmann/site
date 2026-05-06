@@ -81,6 +81,7 @@ export const products: Product[] = [
       { src: "/images/products/crayon-hybride.png", alt: "Crayon Hybride Schoppmann — vue studio pointe encre bleue" },
       { src: "/images/products/pointe-stylo.png", alt: "Gros plan cartouche encre bleue crayon hybride" },
       { src: "/images/products/mine-down.png", alt: "Gros plan pointe mine infinie fond sombre" },
+      { src: "/images/products/kit-mines.png", alt: "Crayon Schoppmann avec mines de rechange" },
     ],
     href: "/produits/crayon-hybride-boite-3d",
     includes: [
@@ -103,9 +104,11 @@ export const products: Product[] = [
     image: "/images/products/crayon-etui-cuir.png",
     imageAlt: "Crayon Schoppmann hybride dans étui cuir rouge",
     gallery: [
+      { src: "/images/products/crayon-hybride.png", alt: "Crayon Hybride Schoppmann — vue studio pointe encre bleue" },
       { src: "/images/products/crayon-steve-lavoie.png", alt: "Crayon Schoppmann gravé dans étui cuir — exemple personnalisation" },
       { src: "/images/products/mine-stylo-montee.png", alt: "Mine stylo montée sur crayon hybride" },
       { src: "/images/products/mine-up.png", alt: "Gros plan pointe mine infinie" },
+      { src: "/images/products/kit-mines.png", alt: "Crayon Schoppmann avec mines de rechange" },
     ],
     href: "/produits/crayon-hybride-cuir",
     includes: [

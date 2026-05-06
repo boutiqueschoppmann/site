@@ -7,7 +7,8 @@ import { useCart } from "@/lib/cart";
 
 export default function CartView() {
   const { items, removeFromCart, updateQuantity, totalItems, totalPrice } = useCart();
-  const [pickup, setPickup] = useState(false);
+  const [pickupLocation, setPickupLocation] = useState<string | null>(null);
+  const pickup = pickupLocation !== null;
 
   if (items.length === 0) {
     return (
@@ -127,18 +128,27 @@ export default function CartView() {
             <h2 className="font-display text-xl text-charbon">Récapitulatif</h2>
 
             {/* Option ramassage local */}
-            <label className="flex items-start gap-3 cursor-pointer border border-charbon/10 p-4 hover:border-charbon/25 transition-colors">
-              <input
-                type="checkbox"
-                checked={pickup}
-                onChange={(e) => setPickup(e.target.checked)}
-                className="mt-0.5 accent-charbon"
-              />
-              <div>
-                <p className="text-sm text-charbon font-medium">Ramassage local — Gratuit</p>
-                <p className="text-xs text-charbon/50 mt-0.5">Sainte-Brigitte-de-Laval, QC · Sur rendez-vous</p>
-              </div>
-            </label>
+            <div className="border border-charbon/10 p-4 flex flex-col gap-3">
+              <p className="text-sm text-charbon font-medium">Ramassage local — Gratuit</p>
+              {["Sainte-Brigitte-de-Laval", "Montréal", "Québec"].map((city) => (
+                <label key={city} className="flex items-center gap-3 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="pickup"
+                    checked={pickupLocation === city}
+                    onChange={() => setPickupLocation(city)}
+                    className="accent-charbon"
+                  />
+                  <span className="text-sm text-charbon/70">{city}</span>
+                </label>
+              ))}
+              {pickup && (
+                <button onClick={() => setPickupLocation(null)} className="text-xs text-charbon/30 hover:text-charbon/60 text-left transition-colors">
+                  Annuler le ramassage
+                </button>
+              )}
+              <p className="text-xs text-charbon/40">Sur rendez-vous · Nous vous contacterons pour confirmer</p>
+            </div>
 
             <div className="flex flex-col gap-3 text-sm">
               <div className="flex justify-between text-charbon/70">

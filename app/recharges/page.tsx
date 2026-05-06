@@ -5,7 +5,7 @@ import ProductCard from "@/components/ui/ProductCard";
 
 export const metadata: Metadata = {
   title: "Recharges",
-  description: "Pack 5 mines de rechange Schoppmann — 10 CAD. Compatible tous modèles.",
+  description: "Pack 10 mines de rechange Schoppmann — 9 CAD. Compatible tous modèles.",
 };
 
 const rechargeProducts = products.filter((p) => p.collection === "recharges");
@@ -27,9 +27,9 @@ export default function RechargesPage() {
         <div>
           <p className="text-xs text-cuir tracking-widest uppercase font-mono mb-3">Recharges</p>
           <h1 className="font-display text-5xl text-charbon mb-4">Une mine qui dure des années.</h1>
-          <p className="text-charbon/50 text-lg mb-6">Et quand vient le moment, c&apos;est 5 mines pour 10 CAD.</p>
-          <span className="font-mono text-4xl text-charbon">10 CAD</span>
-          <span className="text-charbon/40 text-sm ml-2">/ pack 5 mines</span>
+          <p className="text-charbon/50 text-lg mb-6">Et quand vient le moment, c&apos;est 10 mines pour 9 CAD.</p>
+          <span className="font-mono text-4xl text-charbon">9 CAD</span>
+          <span className="text-charbon/40 text-sm ml-2">/ pack 10 mines</span>
         </div>
         <div className="relative aspect-video overflow-hidden bg-charbon/5">
           <Image src="/images/products/mines-pack.png" alt="Mines de rechange Schoppmann rouge et noir" fill className="object-contain p-4" sizes="600px" priority />

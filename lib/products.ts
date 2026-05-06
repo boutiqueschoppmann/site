@@ -53,7 +53,6 @@ export const products: Product[] = [
     imageAlt: "Crayon Schoppmann dans étui cuir rouge",
     gallery: [
       { src: "/images/products/crayon-etui-cuir.png", alt: "Crayon Schoppmann dans étui cuir rouge" },
-      { src: "/images/products/crayon-steve-lavoie.png", alt: "Crayon Schoppmann gravé dans étui cuir — exemple personnalisation" },
       { src: "/images/products/crayon-infini.png", alt: "Crayon Infini Schoppmann — vue studio" },
       { src: "/images/products/mine-up.png", alt: "Gros plan pointe mine infinie" },
     ],
@@ -106,7 +105,6 @@ export const products: Product[] = [
     imageAlt: "Crayon Schoppmann hybride dans étui cuir rouge",
     gallery: [
       { src: "/images/products/crayon-etui-cuir.png", alt: "Crayon Schoppmann dans étui cuir rouge" },
-      { src: "/images/products/crayon-steve-lavoie.png", alt: "Crayon Schoppmann gravé dans étui cuir — exemple personnalisation" },
       { src: "/images/products/mine-stylo-montee.png", alt: "Mine stylo montée sur crayon hybride" },
       { src: "/images/products/mine-up.png", alt: "Gros plan pointe mine infinie" },
     ],
@@ -174,10 +172,10 @@ export const products: Product[] = [
   /* ─── RECHARGES ─── */
   {
     slug: "pack-5-mines",
-    name: "Pack 5 mines",
+    name: "Pack 10 mines",
     tagline: "",
     sub: "Recharges compatibles tous modèles Schoppmann",
-    price: 10,
+    price: 9,
     collection: "recharges",
     image: "/images/products/lot-mines.png",
     imageAlt: "Lot de mines de rechange Schoppmann",
@@ -190,12 +188,12 @@ export const products: Product[] = [
     ],
     href: "/produits/pack-5-mines",
     includes: [
-      "5 mines métal-céramique",
+      "10 mines métal-céramique",
       "Disponible en noir et rouge",
       "Compatible tous modèles Schoppmann",
     ],
     description:
-      "Les mines de rechange Schoppmann en métal-céramique. Compatibles avec tous les modèles de la gamme. Disponibles en noir (écriture standard) et rouge (annotations, corrections). Filetage doré standard.",
+      "Les mines de rechange Schoppmann en métal-céramique. Pack de 10 mines compatibles avec tous les modèles de la gamme. Disponibles en noir (écriture standard) et rouge (annotations, corrections). Filetage doré standard.",
   },
 ];
 

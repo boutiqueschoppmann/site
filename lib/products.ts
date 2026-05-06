@@ -52,7 +52,7 @@ export const products: Product[] = [
     image: "/images/products/crayon-etui-cuir.png",
     imageAlt: "Crayon Schoppmann dans étui cuir rouge",
     gallery: [
-      { src: "/images/products/crayon-etui-cuir.png", alt: "Crayon Schoppmann dans étui cuir rouge" },
+      { src: "/images/products/crayon-steve-lavoie.png", alt: "Crayon Schoppmann gravé dans étui cuir — exemple personnalisation" },
       { src: "/images/products/crayon-infini.png", alt: "Crayon Infini Schoppmann — vue studio" },
       { src: "/images/products/mine-up.png", alt: "Gros plan pointe mine infinie" },
     ],
@@ -104,7 +104,7 @@ export const products: Product[] = [
     image: "/images/products/crayon-etui-cuir.png",
     imageAlt: "Crayon Schoppmann hybride dans étui cuir rouge",
     gallery: [
-      { src: "/images/products/crayon-etui-cuir.png", alt: "Crayon Schoppmann dans étui cuir rouge" },
+      { src: "/images/products/crayon-steve-lavoie.png", alt: "Crayon Schoppmann gravé dans étui cuir — exemple personnalisation" },
       { src: "/images/products/mine-stylo-montee.png", alt: "Mine stylo montée sur crayon hybride" },
       { src: "/images/products/mine-up.png", alt: "Gros plan pointe mine infinie" },
     ],

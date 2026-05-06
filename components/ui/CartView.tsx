@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useCart, type CartItem } from "@/lib/cart";
@@ -10,6 +10,13 @@ export default function CartView() {
   const { items, removeFromCart, updateQuantity, totalItems, totalPrice } = useCart();
   const [pickupLocation, setPickupLocation] = useState<string | null>(null);
   const [orderOpen, setOrderOpen] = useState(false);
+
+  useEffect(() => {
+    if (sessionStorage.getItem("autoOpenOrder") === "1") {
+      sessionStorage.removeItem("autoOpenOrder");
+      setOrderOpen(true);
+    }
+  }, []);
   const pickup = pickupLocation !== null;
 
   if (items.length === 0) {

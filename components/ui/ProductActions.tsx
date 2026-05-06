@@ -1,13 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import AddToCartButton from "./AddToCartButton";
 import OrderModal from "./OrderModal";
+import { useCart } from "@/lib/cart";
 import type { Product } from "@/lib/products";
 
 export default function ProductActions({ product }: { product: Product }) {
   const [gravure, setGravure] = useState(false);
   const [orderOpen, setOrderOpen] = useState(false);
+  const { totalItems, addToCart } = useCart();
+  const router = useRouter();
 
   const unitPrice = product.price + (gravure ? 8 : 0);
   const shipping = unitPrice >= 100 ? 0 : 3;
@@ -23,6 +27,16 @@ export default function ProductActions({ product }: { product: Product }) {
     quantity: 1,
     gravure,
   }];
+
+  function handleOrderByMail() {
+    if (totalItems === 0) {
+      setOrderOpen(true);
+    } else {
+      addToCart(product, gravure);
+      sessionStorage.setItem("autoOpenOrder", "1");
+      router.push("/panier");
+    }
+  }
 
   return (
     <div className="flex flex-col gap-4 pt-2">
@@ -45,7 +59,7 @@ export default function ProductActions({ product }: { product: Product }) {
       <div className="flex flex-col sm:flex-row gap-3">
         <AddToCartButton product={product} gravure={gravure} />
         <button
-          onClick={() => setOrderOpen(true)}
+          onClick={handleOrderByMail}
           className="flex-1 text-center border border-charbon/20 text-charbon py-4 px-6 text-sm hover:border-charbon/50 transition-colors"
         >
           Commander par courriel

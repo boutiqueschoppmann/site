@@ -70,8 +70,24 @@ export default function Header() {
           })}
         </nav>
 
-        {/* Actions desktop */}
-        <div className="hidden md:flex md:self-end md:pb-2">
+        {/* Actions */}
+        <div className="flex items-center md:self-end md:pb-2">
+          {/* Panier mobile */}
+          <Link
+            href="/panier"
+            className="md:hidden relative p-2 text-charbon"
+            aria-label="Panier"
+          >
+            <CartIcon />
+            {totalItems > 0 && (
+              <span className="absolute top-0 right-0 w-4 h-4 bg-cuir text-lin text-[9px] font-mono flex items-center justify-center rounded-full leading-none">
+                {totalItems > 9 ? "9+" : totalItems}
+              </span>
+            )}
+          </Link>
+
+          {/* Panier desktop */}
+          <div className="hidden md:flex">
           <Link
             href="/panier"
             className="group inline-flex items-center gap-2 text-sm border border-charbon px-4 py-2 hover:bg-charbon hover:text-lin transition-all duration-200"

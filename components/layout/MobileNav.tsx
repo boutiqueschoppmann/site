@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useCart } from "@/lib/cart";
 
 const items = [
   { label: "Accueil", href: "/", icon: HomeIcon },
@@ -20,7 +19,6 @@ function isActive(href: string, pathname: string) {
 
 export default function MobileNav() {
   const pathname = usePathname();
-  const { totalItems } = useCart();
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-lin border-t border-charbon/12 safe-area-pb">
@@ -41,23 +39,6 @@ export default function MobileNav() {
           );
         })}
 
-        {/* Panier */}
-        <Link
-          href="/panier"
-          className={`flex-1 flex flex-col items-center justify-center gap-0.5 relative transition-colors ${
-            isActive("/panier", pathname) ? "text-charbon" : "text-charbon/40 hover:text-charbon/70"
-          }`}
-        >
-          <span className="relative">
-            <CartIcon active={isActive("/panier", pathname)} />
-            {totalItems > 0 && (
-              <span className="absolute -top-1 -right-1.5 w-3.5 h-3.5 bg-cuir text-lin text-[8px] font-mono flex items-center justify-center rounded-full leading-none">
-                {totalItems > 9 ? "9" : totalItems}
-              </span>
-            )}
-          </span>
-          <span className="text-[9px] font-mono leading-none">Panier</span>
-        </Link>
       </div>
     </nav>
   );
@@ -121,12 +102,3 @@ function MailIcon({ active }: { active: boolean }) {
   );
 }
 
-function CartIcon({ active }: { active: boolean }) {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill={active ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.5">
-      <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
-      <line x1="3" y1="6" x2="21" y2="6" />
-      <path d="M16 10a4 4 0 01-8 0" />
-    </svg>
-  );
-}

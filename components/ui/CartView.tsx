@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useCart } from "@/lib/cart";
+import { useCart, type CartItem } from "@/lib/cart";
 
 export default function CartView() {
   const { items, removeFromCart, updateQuantity, totalItems, totalPrice } = useCart();
@@ -205,18 +205,77 @@ export default function CartView() {
 
             <div className="border-t border-charbon/8 pt-4">
               <p className="text-xs text-charbon/40 mb-3">En attendant, vous pouvez :</p>
-              <Link
-                href="/contact"
+              <a
+                href={buildMailto({ items, pickupLocation, pickupDiscount, discountedSubtotal, shipping, taxes, total })}
                 className="block text-center border border-charbon/15 text-charbon py-3 text-sm hover:border-charbon/40 transition-colors"
               >
                 Commander par courriel →
-              </Link>
+              </a>
             </div>
           </div>
         </div>
       </div>
     </div>
   );
+}
+
+function buildMailto({
+  items,
+  pickupLocation,
+  pickupDiscount,
+  discountedSubtotal,
+  shipping,
+  taxes,
+  total,
+}: {
+  items: CartItem[];
+  pickupLocation: string | null;
+  pickupDiscount: number;
+  discountedSubtotal: number;
+  shipping: number;
+  taxes: number;
+  total: number;
+}) {
+  const lines = items.map((item) => {
+    const unitPrice = item.price + (item.gravure ? 8 : 0);
+    const lineTotal = (unitPrice * item.quantity).toFixed(2);
+    const gravureLine = item.gravure ? "\n    + Gravure laser" : "";
+    return `- ${item.name}${item.tagline ? ` — ${item.tagline}` : ""} × ${item.quantity} = ${lineTotal} CAD${gravureLine}`;
+  });
+
+  const livraisonLine = pickupLocation
+    ? `Ramassage gratuit à ${pickupLocation}`
+    : shipping === 0
+    ? "Livraison gratuite"
+    : `Livraison standard : ${shipping.toFixed(2)} CAD`;
+
+  const body = [
+    "Bonjour,",
+    "",
+    "Je souhaite passer la commande suivante :",
+    "",
+    "── ARTICLES ──────────────────────────",
+    ...lines,
+    "",
+    "── RÉCAPITULATIF ─────────────────────",
+    `Sous-total : ${(items.reduce((s, i) => s + (i.price + (i.gravure ? 8 : 0)) * i.quantity, 0)).toFixed(2)} CAD`,
+    ...(pickupDiscount > 0 ? [`Remise ramassage (−5%) : −${pickupDiscount.toFixed(2)} CAD`] : []),
+    livraisonLine,
+    `TPS/TVQ (14,975%) : ${taxes.toFixed(2)} CAD`,
+    `Total : ${total.toFixed(2)} CAD`,
+    "",
+    "──────────────────────────────────────",
+    "",
+    "Merci de me confirmer la disponibilité et le délai de livraison.",
+    "",
+    "Cordialement,",
+    "[Votre nom]",
+    "[Votre numéro de téléphone si vous souhaitez être rappelé·e]",
+  ].join("\n");
+
+  const subject = encodeURIComponent("Commande Schoppmann");
+  const encodedBody = encodeURIComponent(body);
+  return `mailto:boutique.schoppmann@gmail.com?subject=${subject}&body=${encodedBody}`;
 }
 
 function CartIcon({ className }: { className?: string }) {

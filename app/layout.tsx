@@ -3,6 +3,7 @@ import { Inter, Tenor_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import MobileNav from "@/components/layout/MobileNav";
 import { CartProvider } from "@/lib/cart";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -33,8 +34,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-screen flex flex-col bg-lin text-charbon">
         <CartProvider>
           <Header />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 pb-14 md:pb-0">{children}</main>
           <Footer />
+          <MobileNav />
         </CartProvider>
       </body>
     </html>

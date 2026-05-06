@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -22,7 +22,6 @@ function isActive(href: string, pathname: string) {
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const { totalItems } = useCart();
 
@@ -71,12 +70,11 @@ export default function Header() {
           })}
         </nav>
 
-        {/* Actions */}
-        <div className="flex items-center gap-3 md:self-end md:pb-2">
-          {/* Panier desktop */}
+        {/* Actions desktop */}
+        <div className="hidden md:flex md:self-end md:pb-2">
           <Link
             href="/panier"
-            className="group hidden md:inline-flex items-center gap-2 text-sm border border-charbon px-4 py-2 hover:bg-charbon hover:text-lin transition-all duration-200"
+            className="group inline-flex items-center gap-2 text-sm border border-charbon px-4 py-2 hover:bg-charbon hover:text-lin transition-all duration-200"
           >
             <CartIcon />
             Panier
@@ -88,73 +86,9 @@ export default function Header() {
               </span>
             )}
           </Link>
-
-          {/* Panier mobile */}
-          <Link
-            href="/panier"
-            className="md:hidden relative p-2 text-charbon"
-            aria-label="Panier"
-          >
-            <CartIcon />
-            {totalItems > 0 && (
-              <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-cuir text-lin text-[10px] font-mono flex items-center justify-center rounded-full">
-                {totalItems > 9 ? "9+" : totalItems}
-              </span>
-            )}
-          </Link>
-
-          {/* Burger mobile */}
-          <button
-            className="md:hidden flex flex-col gap-1.5 w-6 p-1"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Menu"
-          >
-            <span className={`block h-px bg-charbon transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
-            <span className={`block h-px bg-charbon transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
-            <span className={`block h-px bg-charbon transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
-          </button>
         </div>
       </div>
 
-      {/* Menu mobile */}
-      <div
-        className={`md:hidden overflow-hidden transition-all duration-300 bg-lin ${
-          menuOpen ? "max-h-screen border-t border-charbon/10" : "max-h-0"
-        }`}
-      >
-        <nav className="flex flex-col px-6 py-4 gap-1">
-          {nav.map((item) => {
-            const active = isActive(item.href, pathname);
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setMenuOpen(false)}
-                className={`py-3 text-base border-l-2 pl-4 transition-all duration-200 ${
-                  active
-                    ? "border-charbon text-charbon font-medium"
-                    : "border-transparent text-charbon/60 hover:text-charbon"
-                }`}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
-          <div className="border-t border-charbon/10 mt-3 pt-3">
-            <Link
-              href="/panier"
-              onClick={() => setMenuOpen(false)}
-              className="flex items-center gap-3 py-3 pl-4 text-base text-charbon/60 hover:text-charbon transition-colors"
-            >
-              <CartIcon />
-              Panier
-              {totalItems > 0 && (
-                <span className="font-mono text-xs text-cuir">({totalItems})</span>
-              )}
-            </Link>
-          </div>
-        </nav>
-      </div>
     </header>
   );
 }

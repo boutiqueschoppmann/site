@@ -4,10 +4,12 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useCart, type CartItem } from "@/lib/cart";
+import OrderModal from "./OrderModal";
 
 export default function CartView() {
   const { items, removeFromCart, updateQuantity, totalItems, totalPrice } = useCart();
   const [pickupLocation, setPickupLocation] = useState<string | null>(null);
+  const [orderOpen, setOrderOpen] = useState(false);
   const pickup = pickupLocation !== null;
 
   if (items.length === 0) {
@@ -205,16 +207,27 @@ export default function CartView() {
 
             <div className="border-t border-charbon/8 pt-4">
               <p className="text-xs text-charbon/40 mb-3">En attendant, vous pouvez :</p>
-              <a
-                href={buildMailto({ items, pickupLocation, pickupDiscount, discountedSubtotal, shipping, taxes, total })}
-                className="block text-center border border-charbon/15 text-charbon py-3 text-sm hover:border-charbon/40 transition-colors"
+              <button
+                onClick={() => setOrderOpen(true)}
+                className="w-full text-center border border-charbon/15 text-charbon py-3 text-sm hover:border-charbon/40 transition-colors"
               >
                 Commander par courriel →
-              </a>
+              </button>
             </div>
           </div>
         </div>
       </div>
+      <OrderModal
+        isOpen={orderOpen}
+        onClose={() => setOrderOpen(false)}
+        items={items}
+        pickupLocation={pickupLocation}
+        pickupDiscount={pickupDiscount}
+        discountedSubtotal={discountedSubtotal}
+        shipping={shipping}
+        taxes={taxes}
+        total={total}
+      />
     </div>
   );
 }

@@ -30,20 +30,9 @@ export default function Hero() {
   const textOpacity = Math.max(0, 1 - scrollProgress / 0.25);
 
   return (
-    <section ref={sectionRef} className="relative bg-charbon md:h-[300vh]">
-
-      {/* Mobile : titre au-dessus du 3D */}
-      <div className="md:hidden px-6 pt-24 pb-6">
-        <p className="text-lin/50 text-xs tracking-[0.3em] uppercase mb-6 font-mono">
-          Sainte-Brigitte-de-Laval, Québec
-        </p>
-        <h1 className="font-display text-lin text-5xl leading-[1.05]">
-          Le crayon que vous garderez à vie.
-        </h1>
-      </div>
-
-      {/* 3D — hauteur fixe sur mobile, sticky plein écran sur desktop */}
-      <div className="relative h-[65vh] md:sticky md:top-0 md:h-screen overflow-hidden flex items-center">
+    <section ref={sectionRef} className="relative w-full h-[300vh] bg-charbon">
+      <div className="sticky top-0 h-screen overflow-hidden flex items-center">
+        {/* Scène 3D en fond */}
         <div className="absolute inset-0 opacity-90">
           <PencilScene scrollProgress={scrollProgress} />
         </div>
@@ -89,33 +78,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
-      {/* Mobile : sous-titre + boutons sous le 3D */}
-      <div className="md:hidden px-6 pt-6 pb-12">
-        <p className="text-lin/60 text-lg leading-relaxed mb-8">
-          Aluminium usiné à la main au Québec.{" "}
-          <span className="text-lin/80">Mine infinie.</span>{" "}
-          Réutilisable pour toujours.
-        </p>
-        <div className="flex flex-col gap-4">
-          <Link
-            href="/boutique"
-            className="inline-flex items-center justify-center gap-2 bg-lin text-charbon px-8 py-4 text-sm tracking-wide font-medium hover:bg-alu transition-colors duration-200"
-          >
-            Découvrir la collection
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </Link>
-          <Link
-            href="/notre-histoire"
-            className="inline-flex items-center justify-center gap-2 border border-lin/30 text-lin px-8 py-4 text-sm tracking-wide hover:border-lin/60 transition-colors duration-200"
-          >
-            Notre histoire
-          </Link>
-        </div>
-      </div>
-
     </section>
   );
 }

@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const PencilScene = dynamic(() => import("@/components/3d/PencilScene"), {
   ssr: false,
-  loading: () => <div className="w-full h-full bg-charbon" />,
+  loading: () => <div className="absolute inset-0 bg-charbon" />,
 });
 
 export default function Hero() {
@@ -31,11 +31,16 @@ export default function Hero() {
 
   return (
     <section ref={sectionRef} className="relative w-full h-[300vh] bg-charbon">
-      <div className="sticky top-0 h-screen overflow-hidden bg-charbon flex flex-col md:block">
+      <div className="sticky top-0 h-screen overflow-hidden">
 
-        {/* Mobile uniquement : titre au-dessus du 3D */}
+        {/* 3D — full screen sur mobile et desktop */}
+        <div className="absolute inset-0 opacity-90">
+          <PencilScene scrollProgress={scrollProgress} />
+        </div>
+
+        {/* Mobile : titre en haut, fond opaque pour masquer le 3D derrière */}
         <div
-          className="md:hidden shrink-0 px-6 pt-14 pb-3 z-10"
+          className="md:hidden absolute top-0 left-0 right-0 z-10 bg-charbon px-6 pt-[72px] pb-5"
           style={{ opacity: textOpacity }}
         >
           <p className="text-lin/50 text-xs tracking-[0.3em] uppercase mb-3 font-mono">
@@ -46,14 +51,9 @@ export default function Hero() {
           </h1>
         </div>
 
-        {/* Scène 3D — flux sur mobile, absolue sur desktop */}
-        <div className="relative flex-1 min-h-0 md:absolute md:inset-0 opacity-90">
-          <PencilScene scrollProgress={scrollProgress} />
-        </div>
-
-        {/* Mobile uniquement : sous-titre + boutons sous le 3D */}
+        {/* Mobile : sous-titre + boutons en bas, fond opaque pour masquer le 3D derrière */}
         <div
-          className="md:hidden shrink-0 px-6 pt-3 pb-10 z-10"
+          className="md:hidden absolute bottom-0 left-0 right-0 z-10 bg-charbon px-6 pt-5 pb-10"
           style={{ opacity: textOpacity }}
         >
           <p className="text-lin/60 text-base leading-relaxed mb-6">
@@ -86,7 +86,7 @@ export default function Hero() {
           style={{ opacity: textOpacity }}
         />
 
-        {/* Desktop : contenu texte par-dessus le 3D */}
+        {/* Desktop : texte par-dessus le 3D */}
         <div
           className="hidden md:flex absolute inset-0 items-center z-10 transition-none"
           style={{ opacity: textOpacity }}

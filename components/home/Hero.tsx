@@ -33,21 +33,21 @@ export default function Hero() {
 
   return (
     <section ref={sectionRef} className="relative w-full h-[300vh] bg-charbon">
-      <div className="sticky top-0 h-screen overflow-hidden flex items-center">
+      <div className="sticky top-0 h-screen overflow-hidden flex items-start md:items-center">
         {/* Scène 3D en fond */}
         <div className="absolute inset-0 opacity-90">
           <PencilScene scrollProgress={scrollProgress} />
         </div>
 
-        {/* Overlay gradient */}
+        {/* Overlay gradient — vertical sur mobile, horizontal sur desktop */}
         <div
-          className="absolute inset-0 bg-gradient-to-r from-charbon/90 via-charbon/50 to-transparent"
+          className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-charbon/90 via-charbon/50 to-transparent"
           style={{ opacity: textOpacity }}
         />
 
         {/* Contenu */}
         <div
-          className="relative z-10 max-w-7xl mx-auto px-6 w-full transition-none"
+          className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-20 md:pt-0 transition-none"
           style={{ opacity: textOpacity }}
         >
           <div className="max-w-xl">

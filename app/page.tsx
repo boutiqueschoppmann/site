@@ -11,7 +11,7 @@ import HomeFAQ from "@/components/home/HomeFAQ";
 import FinalCTA from "@/components/home/FinalCTA";
 
 export const metadata: Metadata = {
-  title: { absolute: "Schoppmann | Accueil" },
+  title: { absolute: "Schoppmann — Crayon aluminium à mine infinie, fabriqué au Québec" },
 };
 
 export default function HomePage() {

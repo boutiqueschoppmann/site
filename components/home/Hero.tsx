@@ -40,12 +40,9 @@ export default function Hero() {
 
         {/* Mobile : titre en haut, fond opaque pour masquer le 3D derrière */}
         <div
-          className="md:hidden absolute top-0 left-0 right-0 z-10 bg-charbon px-6 pt-[72px] pb-5"
+          className="md:hidden absolute top-0 left-0 right-0 z-10 bg-charbon px-6 pt-16 pb-3"
           style={{ opacity: textOpacity }}
         >
-          <p className="text-lin/50 text-xs tracking-[0.3em] uppercase mb-3 font-mono">
-            Sainte-Brigitte-de-Laval, Québec
-          </p>
           <h1 className="font-display text-lin text-4xl leading-[1.05]">
             Le crayon que vous garderez à vie.
           </h1>
@@ -53,18 +50,18 @@ export default function Hero() {
 
         {/* Mobile : sous-titre + boutons en bas, fond opaque pour masquer le 3D derrière */}
         <div
-          className="md:hidden absolute bottom-0 left-0 right-0 z-10 bg-charbon px-6 pt-5 pb-10"
+          className="md:hidden absolute bottom-0 left-0 right-0 z-10 bg-charbon px-6 pt-3 pb-8"
           style={{ opacity: textOpacity }}
         >
-          <p className="text-lin/60 text-base leading-relaxed mb-6">
+          <p className="text-lin/60 text-sm leading-relaxed mb-4">
             Aluminium usiné à la main au Québec.{" "}
             <span className="text-lin/80">Mine infinie.</span>{" "}
             Réutilisable pour toujours.
           </p>
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-2">
             <Link
               href="/boutique"
-              className="inline-flex items-center justify-center gap-2 bg-lin text-charbon px-8 py-4 text-sm tracking-wide font-medium hover:bg-alu transition-colors duration-200"
+              className="inline-flex items-center justify-center gap-2 bg-lin text-charbon px-8 py-3 text-sm tracking-wide font-medium hover:bg-alu transition-colors duration-200"
             >
               Découvrir la collection
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -73,7 +70,7 @@ export default function Hero() {
             </Link>
             <Link
               href="/notre-histoire"
-              className="inline-flex items-center justify-center gap-2 border border-lin/30 text-lin px-8 py-4 text-sm tracking-wide hover:border-lin/60 transition-colors duration-200"
+              className="inline-flex items-center justify-center gap-2 border border-lin/30 text-lin px-8 py-3 text-sm tracking-wide hover:border-lin/60 transition-colors duration-200"
             >
               Notre histoire
             </Link>

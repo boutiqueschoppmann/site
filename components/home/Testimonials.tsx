@@ -1,21 +1,18 @@
 const testimonials = [
   {
-    quote:
-      "Je cherchais un crayon qui dure. J'ai arrêté de chercher le jour où j'ai reçu le Schoppmann. Deux ans plus tard, il est toujours là.",
-    author: "Marie-Claude T.",
-    role: "Architecte, Montréal",
+    quote: "C'est beau, c'est solide, c'est québécois. Je recommande !",
+    author: "M. L.",
+    role: "",
   },
   {
-    quote:
-      "Offert comme cadeau d'affaires à toute mon équipe. Le niveau de finition est impressionnant. Ça dit quelque chose sur la marque.",
-    author: "François L.",
-    role: "Directeur général, cabinet conseil",
+    quote: "C'est donc ben hot sérieux ! Mon chum va capoter.",
+    author: "A. D.",
+    role: "",
   },
   {
-    quote:
-      "Sur le parcours, dans ma poche de sac, depuis 18 mois. Aucune mine cassée, aucun problème. Jamais.",
-    author: "Jean-Pierre M.",
-    role: "Golfeur amateur, Québec",
+    quote: "Salut j'aime vraiment le crayon merci encore .",
+    author: "X. J.",
+    role: "",
   },
 ];
 

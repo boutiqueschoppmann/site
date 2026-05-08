@@ -15,7 +15,7 @@ const reasons = [
   { title: "Format poche", body: "95 mm — adapté à la poche de sac. Toujours là quand vous en avez besoin." },
   { title: "Mine indestructible", body: "Aucune mine cassée à cause des vibrations du sac. La mine métal-céramique résiste à tout." },
   { title: "Boîte hexagonale 3D", body: "Imprimée à l'atelier en filament recyclé. Protège le crayon, facile à retrouver dans le sac." },
-  { title: "Option case cuir", body: "Pour ceux qui veulent le maximum. Cuir tannage végétal, patine avec le temps." },
+  { title: "Option étui en cuir", body: "Pour ceux qui veulent le maximum. Cuir pleine fleur canadienne, patine avec le temps." },
 ];
 
 export default function GolfPage() {
@@ -33,7 +33,7 @@ export default function GolfPage() {
               <span className="font-mono text-xl text-lin block">17 CAD</span>Boîte hexagonale 3D
             </div>
             <div className="border-l border-lin/20 pl-6">
-              <span className="font-mono text-xl text-lin block">31 CAD</span>Case cuir
+              <span className="font-mono text-xl text-lin block">31 CAD</span>Étui en cuir
             </div>
           </div>
         </div>

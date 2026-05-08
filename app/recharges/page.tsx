@@ -12,11 +12,11 @@ const rechargeProducts = products.filter((p) => p.collection === "recharges");
 
 const compat = [
   { model: "Crayon Infini — Boîte 3D", mine: "✓", encre: "—" },
-  { model: "Crayon Infini — Case cuir", mine: "✓", encre: "—" },
+  { model: "Crayon Infini — Étui en cuir", mine: "✓", encre: "—" },
   { model: "Crayon Hybride — Boîte 3D", mine: "✓", encre: "✓" },
-  { model: "Crayon Hybride — Case cuir", mine: "✓", encre: "✓" },
+  { model: "Crayon Hybride — Étui en cuir", mine: "✓", encre: "✓" },
   { model: "Crayon Golf — Boîte 3D", mine: "✓", encre: "—" },
-  { model: "Crayon Golf — Case cuir", mine: "✓", encre: "—" },
+  { model: "Crayon Golf — Étui en cuir", mine: "✓", encre: "—" },
 ];
 
 export default function RechargesPage() {

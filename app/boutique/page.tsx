@@ -43,7 +43,7 @@ export default function BoutiquePage() {
         <h1 className="font-display text-5xl md:text-6xl text-charbon mb-3">Boutique</h1>
         <p className="text-charbon/50 text-lg max-w-xl">
           Chaque crayon est livré avec sa boîte hexagonale imprimée 3D.
-          Option case cuir disponible sur chaque modèle.
+          Option étui en cuir disponible sur chaque modèle.
         </p>
       </div>
 

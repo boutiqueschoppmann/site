@@ -45,14 +45,14 @@ export const products: Product[] = [
   {
     slug: "crayon-infini-cuir",
     name: "Crayon Infini",
-    tagline: "Case cuir",
-    sub: "Mine infinie · corps aluminium · case cuir tannage végétal",
+    tagline: "Étui en cuir",
+    sub: "Mine infinie · corps aluminium · étui cuir pleine fleur canadienne",
     price: 34,
     collection: "mine-infinie",
     image: "/images/products/crayon-etui-cuir.png",
     imageAlt: "Crayon Schoppmann dans étui cuir rouge",
     gallery: [
-      { src: "/images/products/crayon-etui-cuir.png", alt: "Étui cuir Schoppmann — tannage végétal caramel" },
+      { src: "/images/products/crayon-etui-cuir.png", alt: "Étui cuir Schoppmann — cuir pleine fleur canadienne" },
       { src: "/images/products/crayon-steve-lavoie.png", alt: "Crayon Schoppmann gravé dans étui cuir — exemple personnalisation" },
       { src: "/images/products/crayon-infini.png", alt: "Crayon Infini Schoppmann — vue studio" },
       { src: "/images/products/mine-up.png", alt: "Gros plan pointe mine infinie" },
@@ -60,11 +60,11 @@ export const products: Product[] = [
     href: "/produits/crayon-infini-cuir",
     includes: [
       "1 crayon aluminium mine infinie",
-      "Case cuir tannage végétal caramel",
+      "Étui en cuir pleine fleur canadienne",
       "1 mine de rechange",
     ],
     description:
-      "Le Crayon Infini dans sa version premium : même corps aluminium usiné à la main, livré dans une case cuir tannage végétal. Le cuir patine avec le temps — l'objet devient plus beau en vieillissant.",
+      "Le Crayon Infini dans sa version premium : même corps aluminium usiné à la main, livré dans un étui en cuir pleine fleur canadienne. Le cuir patine avec le temps — l'objet devient plus beau en vieillissant.",
   },
 
   /* ─── HYBRIDE ─── */
@@ -98,14 +98,14 @@ export const products: Product[] = [
   {
     slug: "crayon-hybride-cuir",
     name: "Crayon Hybride",
-    tagline: "Case cuir",
-    sub: "Mine infinie + cartouche encre · case cuir tannage végétal",
+    tagline: "Étui en cuir",
+    sub: "Mine infinie + cartouche encre · étui cuir pleine fleur canadienne",
     price: 39,
     collection: "hybride",
     image: "/images/products/crayon-etui-cuir.png",
     imageAlt: "Crayon Schoppmann hybride dans étui cuir rouge",
     gallery: [
-      { src: "/images/products/crayon-etui-cuir.png", alt: "Étui cuir Schoppmann — tannage végétal caramel" },
+      { src: "/images/products/crayon-etui-cuir.png", alt: "Étui cuir Schoppmann — cuir pleine fleur canadienne" },
       { src: "/images/products/crayon-hybride.png", alt: "Crayon Hybride Schoppmann — vue studio pointe encre bleue" },
       { src: "/images/products/crayon-steve-lavoie.png", alt: "Crayon Schoppmann gravé dans étui cuir — exemple personnalisation" },
       { src: "/images/products/mine-stylo-montee.png", alt: "Mine stylo montée sur crayon hybride" },
@@ -117,11 +117,11 @@ export const products: Product[] = [
       "1 crayon aluminium hybride",
       "Mine infinie côté pointe",
       "1 cartouche encre bleue côté embout",
-      "Case cuir tannage végétal caramel",
+      "Étui en cuir pleine fleur canadienne",
       "1 mine de rechange",
     ],
     description:
-      "Le Crayon Hybride en version premium. Mine infinie + encre bleue dans un corps aluminium usiné à la main, livré dans une case cuir tannage végétal. L'objet le plus complet de la gamme.",
+      "Le Crayon Hybride en version premium. Mine infinie + encre bleue dans un corps aluminium usiné à la main, livré dans un étui en cuir pleine fleur canadienne. L'objet le plus complet de la gamme.",
   },
 
   /* ─── GOLF ─── */
@@ -154,8 +154,8 @@ export const products: Product[] = [
   {
     slug: "crayon-golf-cuir",
     name: "Crayon Golf",
-    tagline: "Case cuir",
-    sub: "Format poche · mine infinie · case cuir tannage végétal",
+    tagline: "Étui en cuir",
+    sub: "Format poche · mine infinie · étui cuir pleine fleur canadienne",
     price: 31,
     collection: "golf",
     image: "/images/products/crayon-golf.png",
@@ -170,11 +170,11 @@ export const products: Product[] = [
     href: "/produits/crayon-golf-cuir",
     includes: [
       "1 crayon aluminium format poche (95 mm)",
-      "Case cuir tannage végétal caramel",
+      "Étui en cuir pleine fleur canadienne",
       "1 mine de rechange",
     ],
     description:
-      "Le Crayon Golf dans sa version premium. Format 95 mm, mine infinie, case cuir tannage végétal. Pour ceux qui n'acceptent aucun compromis même sur le parcours.",
+      "Le Crayon Golf dans sa version premium. Format 95 mm, mine infinie, étui en cuir pleine fleur canadienne. Pour ceux qui n'acceptent aucun compromis même sur le parcours.",
   },
 
   /* ─── RECHARGES ─── */

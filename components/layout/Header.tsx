@@ -37,7 +37,7 @@ export default function Header() {
         scrolled ? "shadow-sm" : ""
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 md:pl-0 h-16 md:h-28 flex items-center justify-between">
+      <div className="w-full pl-4 md:pl-6 pr-4 md:pr-8 h-16 md:h-28 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image

@@ -30,7 +30,7 @@ export default function Hero() {
   const textOpacity = Math.max(0, 1 - scrollProgress / 0.25);
 
   return (
-    <section ref={sectionRef} className="relative w-full h-[300vh] bg-charbon">
+    <section ref={sectionRef} className="relative w-full h-[400vh] bg-charbon">
       <div className="sticky top-0 h-screen overflow-hidden flex items-center md:pt-14">
         {/* Scène 3D en fond */}
         <div className="absolute inset-0 md:translate-y-28 opacity-90">

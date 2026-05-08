@@ -38,8 +38,8 @@ const PENCIL_PRE_SCREW_Y = 0.14;  // pencil stops here before screwing (tip just
 const PENCIL_END_Y = 0.085;        // pencil final position after screwing (higher = stops earlier)
 const PENCIL_SPINS = 5;           // full Y rotations during screwing phase
 const P1 = 0.35;                  // end of approach phase
-const P2 = 0.42;                  // end of screwing phase
-const P3 = 0.70;                  // end of 360° Z rotation phase
+const P2 = 0.63;                  // end of screwing phase
+const P3 = 0.91;                  // end of 360° Z rotation phase
 
 function normalizeToScene(obj: THREE.Object3D, targetHeight: number) {
   obj.updateMatrixWorld(true);

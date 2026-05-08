@@ -2,17 +2,14 @@ const testimonials = [
   {
     quote: "C'est beau, c'est solide, c'est québécois. Je recommande !",
     author: "M. L.",
-    role: "",
   },
   {
     quote: "C'est donc ben hot sérieux ! Mon chum va capoter.",
     author: "A. D.",
-    role: "",
   },
   {
     quote: "Salut j'aime vraiment le crayon merci encore .",
     author: "X. J.",
-    role: "",
   },
 ];
 
@@ -44,7 +41,6 @@ export default function Testimonials() {
 
               <div>
                 <p className="text-charbon text-sm font-medium">{t.author}</p>
-                <p className="text-charbon/40 text-xs mt-0.5">{t.role}</p>
               </div>
             </div>
           ))}

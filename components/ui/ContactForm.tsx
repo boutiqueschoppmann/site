@@ -4,14 +4,15 @@ import { useState } from "react";
 
 type FormType = "b2b" | "contact";
 
-interface Props {
-  type?: FormType;
-}
+const MESSAGE_MAX = 2000;
+const CUSTOMIZATION_MAX = 500;
 
-export default function ContactForm({ type = "contact" }: Props) {
+export default function ContactForm({ type = "contact" }: { type?: FormType }) {
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [message, setMessage] = useState("");
+  const [customization, setCustomization] = useState("");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -81,19 +82,44 @@ export default function ContactForm({ type = "contact" }: Props) {
             </div>
           </div>
           <Field label="Type de produit souhaité" name="product" />
-          <Field label="Personnalisation souhaitée (gravure, couleur, etc.)" name="customization" />
+          <div className="flex flex-col gap-1.5">
+            <div className="flex justify-between items-baseline">
+              <label className="text-xs text-charbon/50 tracking-wide uppercase font-mono">
+                Personnalisation souhaitée (gravure, couleur, etc.)
+              </label>
+              <span className={`text-xs font-mono tabular-nums ${customization.length > CUSTOMIZATION_MAX * 0.9 ? "text-rouge" : "text-charbon/30"}`}>
+                {customization.length}/{CUSTOMIZATION_MAX}
+              </span>
+            </div>
+            <input
+              name="customization"
+              type="text"
+              maxLength={CUSTOMIZATION_MAX}
+              value={customization}
+              onChange={(e) => setCustomization(e.target.value)}
+              className="border border-charbon/20 bg-lin px-4 py-3 text-sm text-charbon focus:outline-none focus:border-charbon/50 transition-colors"
+            />
+          </div>
           <Field label="Délai cible" name="deadline" placeholder="ex. : avant le 15 décembre" />
         </>
       )}
 
       <div className="flex flex-col gap-1.5">
-        <label className="text-xs text-charbon/50 tracking-wide uppercase font-mono">
-          Message
-        </label>
+        <div className="flex justify-between items-baseline">
+          <label className="text-xs text-charbon/50 tracking-wide uppercase font-mono">
+            Message {type === "contact" && <span className="text-cuir">*</span>}
+          </label>
+          <span className={`text-xs font-mono tabular-nums ${message.length > MESSAGE_MAX * 0.9 ? "text-rouge" : "text-charbon/30"}`}>
+            {message.length}/{MESSAGE_MAX}
+          </span>
+        </div>
         <textarea
           name="message"
           rows={4}
-          required
+          required={type === "contact"}
+          maxLength={MESSAGE_MAX}
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
           className="border border-charbon/20 bg-lin px-4 py-3 text-sm text-charbon focus:outline-none focus:border-charbon/50 transition-colors resize-none"
           placeholder={type === "b2b" ? "Décrivez votre besoin..." : "Votre message..."}
         />

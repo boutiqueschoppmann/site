@@ -33,7 +33,7 @@ export default function HomePage() {
       <div className="md:hidden bg-charbon px-6 pt-8 pb-12">
         <p className="text-lin/60 text-lg leading-relaxed mb-8">
           Aluminium usiné à la main au Québec.{" "}
-          <span className="text-lin/80">Mine infinie.</span>{" "}
+          <span className="text-lin/80">Des années d&apos;écriture, sans taille-crayon ni copeaux.</span>{" "}
           Réutilisable pour toujours.
         </p>
         <div className="flex flex-col gap-4">

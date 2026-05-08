@@ -31,7 +31,7 @@ export default function Hero() {
 
   return (
     <section ref={sectionRef} className="relative w-full h-[300vh] bg-charbon">
-      <div className="sticky top-0 h-screen overflow-hidden flex items-center">
+      <div className="sticky top-0 h-screen overflow-hidden flex items-center md:pt-28">
         {/* Scène 3D en fond */}
         <div className="absolute inset-0 md:translate-y-28 opacity-90">
           <PencilScene scrollProgress={scrollProgress} />
@@ -50,12 +50,12 @@ export default function Hero() {
             <p className="text-lin/50 text-xs tracking-[0.3em] uppercase mb-6 font-mono">
               Sainte-Brigitte-de-Laval, Québec
             </p>
-            <h1 className="font-display text-lin text-5xl md:text-6xl lg:text-7xl leading-[1.05] mb-6">
+            <h1 className="font-display text-lin text-5xl md:text-5xl lg:text-6xl leading-[1.05] mb-6">
               Le crayon que vous garderez à vie.
             </h1>
             <p className="text-lin/60 text-lg md:text-xl leading-relaxed mb-10 max-w-md">
               Aluminium usiné à la main au Québec.{" "}
-              <span className="text-lin/80">Mine infinie.</span>{" "}
+              <span className="text-lin/80">Des années d&apos;écriture, sans taille-crayon ni copeaux.</span>{" "}
               Réutilisable pour toujours.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">

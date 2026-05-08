@@ -73,7 +73,7 @@ export default function GolfPage() {
       {/* Photo macro mine */}
       <section className="max-w-7xl mx-auto px-6 py-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center border-t border-charbon/10">
         <div className="relative aspect-[4/3] overflow-hidden">
-          <Image src="/images/crayon_golf_claire.jpg" alt="Crayon Schoppmann sur balle de golf" fill className="object-cover" sizes="600px" />
+          <Image src="/images/products/crayon-balle-golf-schoppmann.jpeg" alt="Crayon Schoppmann pointé sur balle de golf Schoppmann" fill className="object-cover" sizes="600px" />
         </div>
         <div>
           <h2 className="font-display text-3xl text-charbon mb-4">Une mine qui ne casse jamais.</h2>

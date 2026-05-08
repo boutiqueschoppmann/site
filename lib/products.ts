@@ -135,8 +135,10 @@ export const products: Product[] = [
     imageAlt: "Crayon Schoppmann format golf aluminium compact",
     gallery: [
       { src: "/images/products/crayon-golf.png", alt: "Crayon Golf Schoppmann — vue studio" },
+      { src: "/images/products/crayon-balle-golf-schoppmann.jpeg", alt: "Crayon Schoppmann golf pointé sur balle de golf marquée Schoppmann" },
+      { src: "/images/products/carnet-golf-schoppmann-crayon-sorti.jpeg", alt: "Carnet golf Schoppmann avec crayon posé en diagonale" },
+      { src: "/images/products/carnet-golf-schoppmann-crayon-range.jpeg", alt: "Carnet golf Schoppmann avec crayon rangé dans l'élastique" },
       { src: "/images/products/mine-down.png", alt: "Gros plan pointe mine golf fond sombre" },
-      { src: "/images/products/kit-mines.png", alt: "Crayon golf avec mines de rechange" },
     ],
     href: "/produits/crayon-golf-boite-3d",
     includes: [
@@ -158,7 +160,9 @@ export const products: Product[] = [
     imageAlt: "Crayon Schoppmann format golf aluminium avec case cuir",
     gallery: [
       { src: "/images/products/crayon-golf.png", alt: "Crayon Golf Schoppmann — vue studio" },
-      { src: "/images/products/kit-mines.png", alt: "Crayon golf avec mines de rechange" },
+      { src: "/images/products/crayon-balle-golf-schoppmann.jpeg", alt: "Crayon Schoppmann golf pointé sur balle de golf marquée Schoppmann" },
+      { src: "/images/products/carnet-golf-schoppmann-crayon-sorti.jpeg", alt: "Carnet golf Schoppmann avec crayon posé en diagonale" },
+      { src: "/images/products/carnet-golf-schoppmann-crayon-range.jpeg", alt: "Carnet golf Schoppmann avec crayon rangé dans l'élastique" },
       { src: "/images/products/mine-down.png", alt: "Gros plan pointe mine golf" },
     ],
     href: "/produits/crayon-golf-cuir",

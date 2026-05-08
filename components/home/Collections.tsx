@@ -23,8 +23,8 @@ const collections = [
     sub: "Conçus pour le parcours",
     href: "/golf",
     accent: "Format poche",
-    image: "/images/crayon_golf_claire.jpg",
-    imageAlt: "Crayon Schoppmann sur balle de golf",
+    image: "/images/products/crayon-balle-golf-schoppmann.jpeg",
+    imageAlt: "Crayon Schoppmann pointé sur balle de golf Schoppmann",
   },
 ];
 

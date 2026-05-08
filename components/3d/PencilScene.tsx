@@ -215,7 +215,7 @@ export default function PencilScene({ scrollProgress }: Props) {
   return (
     <div className="absolute inset-0 w-full h-full">
       <Canvas
-        camera={{ position: [0, 0.2, 4.5], fov: 36 }}
+        camera={{ position: [0, 0.2, 4.5], fov: 35 }}
         gl={{ antialias: true, alpha: true }}
         dpr={[1, 2]}
       >

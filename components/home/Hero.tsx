@@ -33,7 +33,7 @@ export default function Hero() {
     <section ref={sectionRef} className="relative w-full h-[300vh] bg-charbon">
       <div className="sticky top-0 h-screen overflow-hidden flex items-center">
         {/* Scène 3D en fond */}
-        <div className="absolute inset-0 opacity-90">
+        <div className="absolute inset-0 md:translate-y-28 opacity-90">
           <PencilScene scrollProgress={scrollProgress} />
         </div>
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
-import type { Product } from "./products";
+import { products, type Product } from "./products";
 
 export interface CartItem {
   slug: string;
@@ -34,7 +34,23 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       const stored = localStorage.getItem("schoppmann-cart");
       if (stored) {
         const parsed = JSON.parse(stored);
-        setItems(parsed.map((item: CartItem) => ({ ...item, gravure: item.gravure ?? false })));
+        // Re-derive price from products.ts — prevents localStorage price tampering
+        const sanitized = parsed
+          .map((item: CartItem) => {
+            const known = products.find((p) => p.slug === item.slug);
+            if (!known) return null;
+            return {
+              ...item,
+              price: known.price,
+              name: known.name,
+              tagline: known.tagline,
+              image: known.image,
+              gravure: item.gravure ?? false,
+              quantity: Math.min(Math.max(1, Math.floor(Number(item.quantity) || 1)), 99),
+            };
+          })
+          .filter(Boolean);
+        setItems(sanitized);
       }
     } catch {}
     setHydrated(true);
@@ -79,7 +95,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       return;
     }
     setItems((prev) =>
-      prev.map((i) => (i.slug === slug ? { ...i, quantity: qty } : i))
+      prev.map((i) => (i.slug === slug ? { ...i, quantity: Math.min(qty, 99) } : i))
     );
   };
 

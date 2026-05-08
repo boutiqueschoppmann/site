@@ -9,9 +9,9 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-// Rate limiting in-memory : max 5 requêtes / 10 min par IP
+// Rate limiting in-memory : max 20 requêtes / 10 min par IP
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
-const RATE_LIMIT = 5;
+const RATE_LIMIT = 20;
 const RATE_WINDOW_MS = 10 * 60 * 1000;
 
 function checkRateLimit(ip: string): boolean {

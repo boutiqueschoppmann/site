@@ -264,7 +264,7 @@ export default function CartView() {
         pickupDiscount={pickupDiscount}
         discountedSubtotal={discountedSubtotal}
         shipping={shipping}
-        taxes={taxes}
+        taxes={taxesDisplay}
         total={total}
       />
     </div>

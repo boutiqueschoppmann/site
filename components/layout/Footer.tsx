@@ -94,7 +94,7 @@ export default function Footer() {
 
       <div className="border-t border-lin/10 max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-lin/40">
         <p>© {new Date().getFullYear()} Schoppmann. Tous droits réservés.</p>
-        <p>Fait avec soin à Sainte-Brigitte-de-Laval, Québec 🇨🇦</p>
+        <p className="flex items-center gap-2">Fait avec soin à Sainte-Brigitte-de-Laval, Québec <Image src="/images/flag-qc.svg" alt="Québec" width={22} height={15} className="inline-block" /></p>
       </div>
     </footer>
   );

@@ -32,8 +32,7 @@ export default function CGVPage() {
               et leurs recharges, fabriqués à la main à Sainte-Brigitte-de-Laval, Québec.
             </p>
             <p className="mt-3">
-              Les prix sont affichés en dollars canadiens (CAD) et sont sujets à la TPS (5 %) et à la TVQ (9,975 %),
-              calculées et ajoutées au moment du récapitulatif de commande.
+              Les prix sont affichés en dollars canadiens (CAD), <strong className="text-charbon">taxes non applicables</strong>. Schoppmann est un artisan indépendant dont le chiffre d'affaires est inférieur au seuil d'inscription obligatoire à la TPS/TVQ (30 000 $ CA). Les prix affichés sont les prix finals — aucune taxe ne s'ajoute.
             </p>
             <p className="mt-3">
               Schoppmann se réserve le droit de modifier ses prix à tout moment. Le prix applicable est celui
@@ -70,7 +69,7 @@ export default function CGVPage() {
           <section>
             <h2 className="font-display text-2xl text-charbon mb-4">5. Livraison</h2>
             <p>Les frais de livraison sont de <strong className="text-charbon">3,00 CAD</strong> pour toute commande, quelle que soit la destination.</p>
-            <p className="mt-3">La livraison est <strong className="text-charbon">gratuite au Canada</strong> pour toute commande d'un montant égal ou supérieur à <strong className="text-charbon">100 CAD</strong> (avant taxes).</p>
+            <p className="mt-3">La livraison est <strong className="text-charbon">gratuite au Canada</strong> pour toute commande d'un montant égal ou supérieur à <strong className="text-charbon">100 CAD</strong>.</p>
             <p className="mt-3">Le <strong className="text-charbon">ramassage local</strong> est disponible gratuitement à Sainte-Brigitte-de-Laval, Québec, sur rendez-vous.</p>
             <p className="mt-3">Les délais estimés sont indicatifs et ne constituent pas un engagement ferme. Schoppmann ne saurait être tenu responsable des retards imputables au transporteur.</p>
           </section>

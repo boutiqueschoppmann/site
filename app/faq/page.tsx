@@ -41,7 +41,7 @@ const sections = [
       },
       {
         q: "Puis-je obtenir une facture pour mon entreprise ?",
-        a: "Oui, contactez-nous via le formulaire B2B. On émet une facture TPS/TVQ complète.",
+        a: "Oui, contactez-nous via le formulaire B2B. On émet une facture détaillée. Aucune TPS/TVQ — artisan indépendant sous le seuil de 30 000 CAD.",
       },
     ],
   },

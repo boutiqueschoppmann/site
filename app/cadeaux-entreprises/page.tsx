@@ -65,7 +65,7 @@ export default function CadeauxEntreprisesPage() {
             { title: "Gravure laser", body: "Logo, nom, texte court — jusqu'à 20 caractères sur le corps aluminium." },
             { title: "Boîtes personnalisées", body: "Boîtes imprimées en filament recyclé aux couleurs de votre entreprise." },
             { title: "Commandes dès 25 unités", body: "Tarifs dégressifs selon le volume. Devis sur mesure." },
-            { title: "Facturation entreprise", body: "TPS/TVQ incluses. Facture pro disponible. Délais 3-6 semaines." },
+            { title: "Facturation entreprise", body: "Sans TPS/TVQ — artisan indépendant. Facture pro disponible. Délais 3-6 semaines." },
           ].map((item) => (
             <div key={item.title} className="border border-charbon/10 p-8">
               <h3 className="font-display text-xl text-charbon mb-3">{item.title}</h3>

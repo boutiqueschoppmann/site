@@ -83,7 +83,7 @@ export default async function ProductPage({
           {/* Prix */}
           <div className="flex items-baseline gap-3">
             <span className="font-mono text-3xl text-charbon">{product.price} CAD</span>
-            <span className="text-charbon/40 text-sm">TPS/TVQ en sus</span>
+            <span className="text-charbon/40 text-sm">sans TPS/TVQ</span>
           </div>
 
           {/* Description courte */}

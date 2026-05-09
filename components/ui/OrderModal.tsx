@@ -131,10 +131,11 @@ export default function OrderModal({
                   <span>{pickupLocation ? `Ramassage — ${pickupLocation}` : shipping === 0 ? "Livraison gratuite" : "Livraison"}</span>
                   <span className="font-mono">{shipping === 0 ? "0,00 CAD" : `${shipping.toFixed(2)} CAD`}</span>
                 </div>
-                <div className="flex justify-between text-xs text-charbon/50">
+                <div className="flex justify-between text-xs text-charbon/30 line-through">
                   <span>TPS/TVQ (14,975%)</span>
                   <span className="font-mono">{taxes.toFixed(2)} CAD</span>
                 </div>
+                <p className="text-xs text-charbon/30 font-mono -mt-1">Non applicable — artisan indépendant</p>
                 <div className="flex justify-between text-sm font-mono text-charbon font-medium mt-1">
                   <span>Total</span>
                   <span>{total.toFixed(2)} CAD</span>

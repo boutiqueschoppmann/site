@@ -75,8 +75,8 @@ export default function CartView() {
   const pickupDiscount = pickup ? +(totalPrice * 0.05).toFixed(2) : 0;
   const discountedSubtotal = +(totalPrice - pickupDiscount).toFixed(2);
   const shipping = pickup ? 0 : discountedSubtotal >= 100 ? 0 : 3;
-  const taxes = Math.round((discountedSubtotal + shipping) * 0.14975 * 100) / 100;
-  const total = +(discountedSubtotal + shipping + taxes).toFixed(2);
+  const taxesDisplay = Math.round((discountedSubtotal + shipping) * 0.14975 * 100) / 100;
+  const total = +(discountedSubtotal + shipping).toFixed(2);
 
   return (
     <div className="pt-16 md:pt-28 bg-lin min-h-screen">
@@ -214,10 +214,13 @@ export default function CartView() {
                   )}
                 </span>
               </div>
-              <div className="flex justify-between text-charbon/70">
+              <div className="flex justify-between text-charbon/30 line-through">
                 <span>TPS/TVQ (14,975%)</span>
-                <span className="font-mono">{taxes.toFixed(2)} CAD</span>
+                <span className="font-mono">{taxesDisplay.toFixed(2)} CAD</span>
               </div>
+              <p className="text-xs text-charbon/35 font-mono -mt-1">
+                Non applicable — artisan indépendant
+              </p>
               {!pickup && shipping > 0 && (
                 <p className="text-xs text-charbon/40 font-mono">
                   Livraison gratuite dès 100 CAD

@@ -207,17 +207,7 @@ export async function POST(req: NextRequest) {
     });
   }
 
-  // ─── TPS/TVQ (14,975%) ──────────────────────────────────────────────────
-  const taxBase = discountedSubtotal + shipping;
-  const taxes = Math.round(taxBase * 0.14975 * 100);
-  lineItems.push({
-    price_data: {
-      currency: "cad",
-      product_data: { name: "TPS + TVQ (14,975%)" },
-      unit_amount: taxes,
-    },
-    quantity: 1,
-  });
+  // TPS/TVQ non applicables — artisan indépendant sous le seuil des 30 000 $ CA
 
   // ─── Création de la session Stripe Checkout ──────────────────────────────
   const baseUrl =

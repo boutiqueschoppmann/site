@@ -148,7 +148,7 @@ export async function POST(req: NextRequest) {
         <table cellpadding="4" style="font-family:monospace;font-size:13px;margin-top:12px;margin-left:auto">
           ${pickupDiscount > 0 ? `<tr><td>Remise ramassage (−5%)</td><td style="text-align:right;color:#8B5E3C">−${Number(pickupDiscount).toFixed(2)} CAD</td></tr>` : ""}
           <tr><td>Livraison</td><td style="text-align:right">${shipping === 0 ? "0,00 CAD" : `${Number(shipping).toFixed(2)} CAD`}</td></tr>
-          <tr><td>TPS/TVQ (14,975%)</td><td style="text-align:right">${Number(taxes).toFixed(2)} CAD</td></tr>
+          <tr><td style="text-decoration:line-through;color:#aaa">TPS/TVQ (14,975%)</td><td style="text-align:right;text-decoration:line-through;color:#aaa">${Number(taxes).toFixed(2)} CAD — non applicable</td></tr>
           <tr style="font-weight:bold"><td>Total</td><td style="text-align:right">${Number(total).toFixed(2)} CAD</td></tr>
         </table>
         ${note ? `<hr/><p><b>Note :</b><br/>${escNl(note)}</p>` : ""}

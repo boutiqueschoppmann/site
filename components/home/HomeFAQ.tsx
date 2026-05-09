@@ -64,9 +64,9 @@ export default function HomeFAQ() {
       <div className="text-center mt-10">
         <a
           href="/faq"
-          className="text-sm text-charbon/50 hover:text-charbon transition-colors border-b border-charbon/20 pb-0.5"
+          className="text-sm text-charbon/50 hover:text-charbon transition-colors border-b border-charbon/20 pb-0.5 group inline-flex items-center gap-1"
         >
-          Voir toutes les questions →
+          Voir toutes les questions <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
         </a>
       </div>
     </section>

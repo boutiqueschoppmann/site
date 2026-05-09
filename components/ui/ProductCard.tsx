@@ -37,8 +37,8 @@ export default function ProductCard({ product, size = "md" }: Props) {
         <p className="text-charbon/50 text-sm leading-relaxed flex-1">{product.sub}</p>
         <div className="flex items-center justify-between mt-3 pt-3 border-t border-charbon/8">
           <span className="font-mono text-charbon text-sm">{product.price} CAD</span>
-          <span className="text-xs text-charbon/40 group-hover:text-charbon/70 transition-colors">
-            Voir →
+          <span className="text-xs text-charbon/40 group-hover:text-charbon/70 transition-colors flex items-center gap-1">
+            Voir <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
           </span>
         </div>
       </div>

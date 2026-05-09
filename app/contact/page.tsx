@@ -55,9 +55,9 @@ export default function ContactPage() {
               </p>
               <a
                 href="/cadeaux-entreprises"
-                className="text-sm text-charbon border-b border-charbon/20 pb-0.5 hover:border-charbon transition-colors"
+                className="text-sm text-charbon border-b border-charbon/20 pb-0.5 hover:border-charbon transition-colors group inline-flex items-center gap-1"
               >
-                Formulaire de devis →
+                Formulaire de devis <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
               </a>
             </div>
           </div>

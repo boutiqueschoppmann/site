@@ -236,9 +236,9 @@ export default function CartView() {
             <button
               onClick={handleCheckout}
               disabled={isCheckingOut}
-              className="w-full bg-charbon text-lin py-4 text-sm tracking-wide hover:bg-charbon/80 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+              className="w-full bg-charbon text-lin py-4 text-sm tracking-wide hover:bg-charbon/80 transition-colors disabled:opacity-60 disabled:cursor-not-allowed group cursor-pointer"
             >
-              {isCheckingOut ? "Redirection vers le paiement…" : "Procéder au paiement →"}
+              {isCheckingOut ? "Redirection vers le paiement…" : <>Procéder au paiement <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span></>}
             </button>
             {checkoutError && (
               <p className="text-xs text-rouge text-center font-mono">{checkoutError}</p>
@@ -248,9 +248,9 @@ export default function CartView() {
               <p className="text-xs text-charbon/40 mb-3">En attendant, vous pouvez :</p>
               <button
                 onClick={() => setOrderOpen(true)}
-                className="w-full text-center border-2 border-charbon text-charbon py-3 text-sm hover:bg-charbon/5 transition-colors"
+                className="w-full text-center border-2 border-charbon text-charbon py-3 text-sm hover:bg-charbon/5 transition-colors group cursor-pointer flex items-center justify-center gap-1"
               >
-                Commander par courriel →
+                Commander par courriel <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
               </button>
             </div>
           </div>

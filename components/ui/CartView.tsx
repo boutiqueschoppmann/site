@@ -248,7 +248,7 @@ export default function CartView() {
               <p className="text-xs text-charbon/40 mb-3">En attendant, vous pouvez :</p>
               <button
                 onClick={() => setOrderOpen(true)}
-                className="w-full text-center border border-charbon/15 text-charbon py-3 text-sm hover:border-charbon/40 transition-colors"
+                className="w-full text-center border-2 border-charbon text-charbon py-3 text-sm hover:bg-charbon/5 transition-colors"
               >
                 Commander par courriel →
               </button>

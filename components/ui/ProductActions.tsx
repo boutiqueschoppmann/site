@@ -15,8 +15,8 @@ export default function ProductActions({ product }: { product: Product }) {
 
   const unitPrice = product.price + (gravure ? 8 : 0);
   const shipping = unitPrice >= 100 ? 0 : 3;
-  const taxes = +((unitPrice + shipping) * 0.14975).toFixed(2);
-  const total = +(unitPrice + shipping + taxes).toFixed(2);
+  const taxesDisplay = +((unitPrice + shipping) * 0.14975).toFixed(2);
+  const total = +(unitPrice + shipping).toFixed(2);
 
   const singleItem = [{
     slug: product.slug,
@@ -60,7 +60,7 @@ export default function ProductActions({ product }: { product: Product }) {
         <AddToCartButton product={product} gravure={gravure} />
         <button
           onClick={handleOrderByMail}
-          className="flex-1 text-center border border-charbon/20 text-charbon py-4 px-6 text-sm hover:border-charbon/50 transition-colors"
+          className="flex-1 text-center border-2 border-charbon text-charbon py-4 px-6 text-sm hover:bg-charbon/5 transition-colors"
         >
           Commander par courriel
         </button>
@@ -79,7 +79,7 @@ export default function ProductActions({ product }: { product: Product }) {
         pickupDiscount={0}
         discountedSubtotal={unitPrice}
         shipping={shipping}
-        taxes={taxes}
+        taxes={taxesDisplay}
         total={total}
       />
     </div>

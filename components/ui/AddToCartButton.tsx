@@ -12,7 +12,7 @@ export default function AddToCartButton({ product, gravure = false }: { product:
     return (
       <button
         onClick={() => addToCart(product, gravure)}
-        className="flex-1 bg-charbon text-lin py-4 px-6 text-sm tracking-wide hover:bg-charbon/80 transition-all duration-200"
+        className="flex-1 bg-charbon text-lin border-2 border-charbon py-4 px-6 text-sm tracking-wide hover:bg-charbon/80 transition-all duration-200"
       >
         Ajouter au panier
       </button>

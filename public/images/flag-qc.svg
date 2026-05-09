@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <rect width="900" height="600" fill="#002395"/>
+  <rect x="390" y="0" width="120" height="600" fill="white"/>
+  <rect x="0" y="240" width="900" height="120" fill="white"/>
+  <defs>
+    <g id="fdl">
+      <path d="M0,-24 C-8,-18 -8,-8 0,0 C8,-8 8,-18 0,-24 Z"/>
+      <path d="M0,-8 C-5,-10 -14,-9 -18,-5 C-22,-1 -20,4 -15,4 C-10,4 -5,2 0,0 Z"/>
+      <path d="M0,-8 C5,-10 14,-9 18,-5 C22,-1 20,4 15,4 C10,4 5,2 0,0 Z"/>
+      <rect x="-16" y="2" width="32" height="5"/>
+      <path d="M-10,7 C-10,13 -12,17 -12,21 L12,21 C12,17 10,13 10,7 Z"/>
+      <rect x="-6" y="19" width="12" height="5"/>
+    </g>
+  </defs>
+  <use href="#fdl" transform="translate(195,120) scale(2.5)" fill="white"/>
+  <use href="#fdl" transform="translate(705,120) scale(2.5)" fill="white"/>
+  <use href="#fdl" transform="translate(195,480) scale(2.5)" fill="white"/>
+  <use href="#fdl" transform="translate(705,480) scale(2.5)" fill="white"/>
+</svg>

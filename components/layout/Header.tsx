@@ -84,7 +84,7 @@ export default function Header() {
           {/* Panier mobile */}
           <Link
             href="/panier"
-            className="md:hidden relative p-2 text-charbon"
+            className="md:hidden relative p-2 text-charbon hover:opacity-70 transition-opacity"
             aria-label="Panier"
           >
             <CartIcon />

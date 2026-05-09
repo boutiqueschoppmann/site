@@ -12,7 +12,7 @@ export default function AddToCartButton({ product, gravure = false }: { product:
     return (
       <button
         onClick={() => addToCart(product, gravure)}
-        className="flex-1 bg-charbon text-lin border-2 border-charbon py-4 px-6 text-sm tracking-wide hover:bg-charbon/80 transition-all duration-200"
+        className="flex-1 bg-charbon text-lin border-2 border-charbon py-4 px-6 text-sm tracking-wide hover:bg-charbon/150 transition-all duration-200"
       >
         Ajouter au panier
       </button>
@@ -23,7 +23,7 @@ export default function AddToCartButton({ product, gravure = false }: { product:
     <div className="flex-1 flex items-stretch border border-charbon h-14">
       <button
         onClick={() => updateQuantity(product.slug, quantity - 1)}
-        className="w-12 flex items-center justify-center text-charbon text-xl hover:bg-charbon/8 transition-colors border-r border-charbon/20 flex-shrink-0"
+        className="w-12 flex items-center justify-center text-charbon text-xl hover:bg-charbon/15 transition-colors border-r border-charbon/20 flex-shrink-0"
         aria-label="Diminuer la quantité"
       >
         −
@@ -36,7 +36,7 @@ export default function AddToCartButton({ product, gravure = false }: { product:
       </div>
       <button
         onClick={() => addToCart(product, gravure)}
-        className="w-12 flex items-center justify-center text-charbon text-xl hover:bg-charbon/8 transition-colors border-l border-charbon/20 flex-shrink-0"
+        className="w-12 flex items-center justify-center text-charbon text-xl hover:bg-charbon/15 transition-colors border-l border-charbon/20 flex-shrink-0"
         aria-label="Augmenter la quantité"
       >
         +

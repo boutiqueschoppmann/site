@@ -15,7 +15,7 @@ export default function FAQAccordion({ items }: { items: FAQItem[] }) {
       {items.map((item, i) => (
         <div key={i}>
           <button
-            className="w-full flex items-center justify-between py-4 text-left gap-4"
+            className="w-full flex items-center justify-between py-4 text-left gap-4 hover:text-charbon cursor-pointer hover:bg-charbon/5 px-2 -mx-2 transition-colors rounded-sm"
             onClick={() => setOpen(open === i ? null : i)}
           >
             <span className="text-charbon text-base">{item.q}</span>

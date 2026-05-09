@@ -70,7 +70,7 @@ export default function Hero() {
               </Link>
               <Link
                 href="/notre-histoire"
-                className="inline-flex items-center justify-center gap-2 border border-lin/30 text-lin px-8 py-4 text-sm tracking-wide hover:border-lin/60 transition-colors duration-200"
+                className="inline-flex items-center justify-center gap-2 border border-lin/30 text-lin px-8 py-4 text-sm tracking-wide hover:border-lin hover:bg-lin/10 transition-colors duration-200"
               >
                 Notre histoire
               </Link>

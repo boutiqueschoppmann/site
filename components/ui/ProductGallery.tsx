@@ -65,7 +65,7 @@ export default function ProductGallery({ images }: { images: GalleryImage[] }) {
               key={i}
               onClick={() => setActive(i)}
               className={`relative w-16 h-16 flex-shrink-0 overflow-hidden border-2 transition-colors ${
-                i === active ? "border-charbon" : "border-charbon/15 hover:border-charbon/35"
+                i === active ? "border-charbon" : "border-charbon/15 hover:border-charbon/70"
               }`}
             >
               <Image

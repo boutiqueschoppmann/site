@@ -41,7 +41,7 @@ export default function ProductActions({ product }: { product: Product }) {
   return (
     <div className="flex flex-col gap-4 pt-2">
       {/* Option gravure */}
-      <label className="flex items-start gap-3 cursor-pointer border border-charbon/10 p-4 hover:border-charbon/25 transition-colors">
+      <label className="flex items-start gap-3 cursor-pointer border border-charbon/10 p-4 hover:border-charbon/50 hover:bg-charbon/[0.02] transition-colors">
         <input
           type="checkbox"
           checked={gravure}
@@ -60,7 +60,7 @@ export default function ProductActions({ product }: { product: Product }) {
         <AddToCartButton product={product} gravure={gravure} />
         <button
           onClick={handleOrderByMail}
-          className="flex-1 text-center border-2 border-charbon text-charbon py-4 px-6 text-sm hover:bg-charbon/5 transition-colors"
+          className="flex-1 text-center border-2 border-charbon text-charbon py-4 px-6 text-sm hover:bg-charbon/10 transition-colors cursor-pointer"
         >
           Commander par courriel
         </button>

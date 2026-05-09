@@ -1,0 +1,4 @@
+lib/stripe.ts
+app/api/checkout/
+app/api/webhook/
+app/checkout/succes/

@@ -10,6 +10,35 @@ export default function CartView() {
   const { items, removeFromCart, updateQuantity, totalItems, totalPrice } = useCart();
   const [pickupLocation, setPickupLocation] = useState<string | null>(null);
   const [orderOpen, setOrderOpen] = useState(false);
+  const [isCheckingOut, setIsCheckingOut] = useState(false);
+  const [checkoutError, setCheckoutError] = useState<string | null>(null);
+
+  const handleCheckout = async () => {
+    setIsCheckingOut(true);
+    setCheckoutError(null);
+    try {
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          items: items.map((i) => ({ slug: i.slug, quantity: i.quantity, gravure: i.gravure })),
+          pickup: pickupLocation,
+        }),
+      });
+      const data = await res.json();
+      // Validation défensive : l'URL doit venir de Stripe Checkout
+      const isStripeUrl = typeof data.url === "string" && data.url.startsWith("https://checkout.stripe.com/");
+      if (res.ok && isStripeUrl) {
+        window.location.href = data.url;
+      } else {
+        setCheckoutError(data.error ?? "Une erreur est survenue. Réessayez.");
+        setIsCheckingOut(false);
+      }
+    } catch {
+      setCheckoutError("Erreur réseau. Vérifiez votre connexion et réessayez.");
+      setIsCheckingOut(false);
+    }
+  };
 
   useEffect(() => {
     if (sessionStorage.getItem("autoOpenOrder") === "1") {
@@ -202,11 +231,25 @@ export default function CartView() {
             </div>
 
             <button
-              onClick={() => setOrderOpen(true)}
-              className="w-full bg-charbon text-lin py-4 text-sm tracking-wide hover:bg-charbon/80 transition-colors"
+              onClick={handleCheckout}
+              disabled={isCheckingOut}
+              className="w-full bg-charbon text-lin py-4 text-sm tracking-wide hover:bg-charbon/80 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              Commander →
+              {isCheckingOut ? "Redirection vers le paiement…" : "Procéder au paiement →"}
             </button>
+            {checkoutError && (
+              <p className="text-xs text-rouge text-center font-mono">{checkoutError}</p>
+            )}
+
+            <div className="border-t border-charbon/8 pt-4">
+              <p className="text-xs text-charbon/40 mb-3">En attendant, vous pouvez :</p>
+              <button
+                onClick={() => setOrderOpen(true)}
+                className="w-full text-center border border-charbon/15 text-charbon py-3 text-sm hover:border-charbon/40 transition-colors"
+              >
+                Commander par courriel →
+              </button>
+            </div>
           </div>
         </div>
       </div>

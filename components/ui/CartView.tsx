@@ -46,7 +46,7 @@ export default function CartView() {
   const pickupDiscount = pickup ? +(totalPrice * 0.05).toFixed(2) : 0;
   const discountedSubtotal = +(totalPrice - pickupDiscount).toFixed(2);
   const shipping = pickup ? 0 : discountedSubtotal >= 100 ? 0 : 3;
-  const taxes = +((discountedSubtotal + shipping) * 0.14975).toFixed(2);
+  const taxes = Math.round((discountedSubtotal + shipping) * 0.14975 * 100) / 100;
   const total = +(discountedSubtotal + shipping + taxes).toFixed(2);
 
   return (
@@ -202,25 +202,11 @@ export default function CartView() {
             </div>
 
             <button
-              disabled
-              className="w-full bg-charbon text-lin py-4 text-sm tracking-wide opacity-50 cursor-not-allowed"
-              title="Paiement en cours d'intégration"
+              onClick={() => setOrderOpen(true)}
+              className="w-full bg-charbon text-lin py-4 text-sm tracking-wide hover:bg-charbon/80 transition-colors"
             >
-              Procéder au paiement
+              Commander →
             </button>
-            <p className="text-xs text-charbon/30 text-center font-mono">
-              Paiement en ligne bientôt disponible
-            </p>
-
-            <div className="border-t border-charbon/8 pt-4">
-              <p className="text-xs text-charbon/40 mb-3">En attendant, vous pouvez :</p>
-              <button
-                onClick={() => setOrderOpen(true)}
-                className="w-full text-center border border-charbon/15 text-charbon py-3 text-sm hover:border-charbon/40 transition-colors"
-              >
-                Commander par courriel →
-              </button>
-            </div>
           </div>
         </div>
       </div>

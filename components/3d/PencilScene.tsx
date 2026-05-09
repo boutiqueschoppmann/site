@@ -59,9 +59,12 @@ function normalizeToScene(obj: THREE.Object3D, targetHeight: number) {
   obj.position.z -= residual.z;
 }
 
-const aluMat = new THREE.MeshStandardMaterial({ color: "#C9CBCD", metalness: 0.96, roughness: 0.07 });
-const aluDarkMat = new THREE.MeshStandardMaterial({ color: "#9FA1A3", metalness: 0.98, roughness: 0.05 });
-const ceramicMat = new THREE.MeshStandardMaterial({ color: "#1a1a1a", metalness: 0.1, roughness: 0.9 });
+// Aluminium brossé — roughness 0.28 reproduit le fini satiné de la photo (pas miroir)
+const aluMat = new THREE.MeshStandardMaterial({ color: "#C0C4C8", metalness: 0.82, roughness: 0.28, envMapIntensity: 1.5 });
+const aluAccentMat = new THREE.MeshStandardMaterial({ color: "#9CA0A4", metalness: 0.85, roughness: 0.25, envMapIntensity: 1.5 });
+// Mine graphite — sombre avec ombrage subtil pour lire la forme conique
+const mineMat = new THREE.MeshStandardMaterial({ color: "#181818", metalness: 0.0, roughness: 0.9, envMapIntensity: 0 });
+
 
 // ─── Corps hexagonal ──────────────────────────────────────────────────────────
 // Long axis = Z. rotation.x = +PI/2 maps Z → -Y (z=0 end goes to bottom = tip side).
@@ -80,7 +83,7 @@ function PencilBody() {
       if ((child as THREE.Mesh).isMesh) {
         (child as THREE.Mesh).castShadow = true;
         child.receiveShadow = true;
-        (child as THREE.Mesh).material = idx === 1 ? aluDarkMat : aluMat;
+        (child as THREE.Mesh).material = idx === 1 ? aluAccentMat : aluMat;
         idx++;
       }
     });
@@ -107,7 +110,7 @@ function Mine() {
     meshes.forEach((mesh, i) => {
       mesh.castShadow = true;
       mesh.receiveShadow = true;
-      mesh.material = i === meshes.length - 1 ? ceramicMat : aluMat;
+      mesh.material = mineMat;
     });
   }, [model]);
 
@@ -216,15 +219,19 @@ export default function PencilScene({ scrollProgress }: Props) {
     <div className="absolute inset-0 w-full h-full">
       <Canvas
         camera={{ position: [0, 0.2, 4.5], fov: 35 }}
-        gl={{ antialias: true, alpha: true }}
+        gl={{ antialias: true, alpha: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 1.2 }}
         dpr={[1, 2]}
       >
-        <ambientLight intensity={0.25} />
-        <directionalLight position={[4, 5, 3]} intensity={3.8} castShadow
+        {/* Lumière d'ambiance froide — base douce sur toutes les faces */}
+        <hemisphereLight args={["#d0dce8", "#707880", 0.9]} />
+        {/* KEY LIGHT — avant-gauche-haut, reproduit la lumière principale de la photo produit.
+            Crée le gradient lumineux caractéristique sur le corps hexagonal. */}
+        <directionalLight position={[-3, 5, 4]} intensity={3.5} castShadow
           shadow-mapSize={[2048, 2048]} shadow-camera-far={20} />
-        <directionalLight position={[-5, 2, 2]} intensity={0.7} color="#cce0ff" />
-        <directionalLight position={[1, -4, -3]} intensity={1.0} color="#ffe8dd" />
-        <pointLight position={[0, 3, 4]} intensity={1.2} color="#fff5e8" />
+        {/* FILL LIGHT — droite douce, empêche les faces opposées d'être trop sombres */}
+        <directionalLight position={[4, 2, 3]} intensity={0.6} color="#d8e4f0" />
+        {/* RIM LIGHT — arrière-haut, sépare le crayon du fond pendant la rotation */}
+        <directionalLight position={[0, 3, -5]} intensity={0.8} color="#e0ecff" />
 
         <Suspense fallback={null}>
           <PencilAssembly scrollProgress={scrollProgress} />
@@ -235,7 +242,7 @@ export default function PencilScene({ scrollProgress }: Props) {
             blur={3}
             far={2}
           />
-          <Environment preset="studio" />
+          <Environment files="/models/studio_small_03_1k.hdr" />
         </Suspense>
 
         <CameraRig scrollProgress={scrollProgress} />

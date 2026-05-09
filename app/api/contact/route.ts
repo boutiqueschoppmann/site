@@ -46,7 +46,22 @@ function str(val: unknown, max = 500): string {
   return s.slice(0, max);
 }
 
+function isValidOrigin(req: NextRequest): boolean {
+  const origin = req.headers.get("origin");
+  if (!origin) return true;
+  const base = process.env.NEXT_PUBLIC_URL ?? (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
+  try {
+    return new URL(origin).origin === new URL(base).origin;
+  } catch {
+    return false;
+  }
+}
+
 export async function POST(req: NextRequest) {
+  if (!isValidOrigin(req)) {
+    return NextResponse.json({ error: "Origine non autorisée." }, { status: 403 });
+  }
+
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
   if (!checkRateLimit(ip)) {
     return NextResponse.json({ error: "Trop de requêtes. Réessayez dans 10 minutes." }, { status: 429 });
@@ -97,9 +112,10 @@ export async function POST(req: NextRequest) {
     let html = "";
 
     if (isOrder) {
-      const itemRows = (items ?? []).map((item: { name: string; tagline?: string; quantity: number; price: number; gravure?: boolean; slug: string }) => {
+      const itemRows = (Array.isArray(items) ? items.slice(0, 50) : []).map((item: { name: string; tagline?: string; quantity: number; price: number; gravure?: boolean; slug: string }) => {
         const unitPrice = item.price + (item.gravure ? 8 : 0);
-        const gravureText = item.gravure && gravureTexts?.[item.slug] ? str(gravureTexts[item.slug], 20) : null;
+        const safeGravureTexts = gravureTexts && typeof gravureTexts === "object" && !Array.isArray(gravureTexts) ? gravureTexts : {};
+        const gravureText = item.gravure && safeGravureTexts[item.slug] ? str(safeGravureTexts[item.slug], 20) : null;
         return `
           <tr>
             <td>${esc(item.name)}${item.tagline ? ` — ${esc(item.tagline)}` : ""}</td>

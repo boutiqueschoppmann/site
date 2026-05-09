@@ -40,4 +40,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-.vercel
+# Stripe — intégration paiement non déployée (compte pas encore configuré)
+/lib/stripe.ts
+/app/api/checkout/
+/app/api/webhook/
+/app/checkout/succes/

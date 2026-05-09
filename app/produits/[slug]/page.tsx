@@ -110,12 +110,15 @@ export default async function ProductPage({
           <div className="grid grid-cols-2 gap-3">
             {[
               { icon: "🛠", label: "Garantie à vie" },
-              { icon: "🇨🇦", label: "Fait au Québec" },
+              { img: "/images/flag-qc.svg", label: "Fait au Québec" },
               { icon: "📦", label: "Ramassage local gratuit" },
               { icon: "↩", label: "Retour 30 jours" },
             ].map((r) => (
               <div key={r.label} className="flex items-center gap-2 text-xs text-charbon/60">
-                <span>{r.icon}</span>
+                {"img" in r
+                  ? <img src={r.img} alt="" width={18} height={13} className="shrink-0" />
+                  : <span>{r.icon}</span>
+                }
                 <span>{r.label}</span>
               </div>
             ))}

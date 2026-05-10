@@ -61,6 +61,8 @@ export default function GolfPage() {
         </p>
       </section>
 
+      <div className="max-w-7xl mx-auto px-6"><div className="border-t border-charbon/10" /></div>
+
       {/* Produits */}
       <section className="max-w-7xl mx-auto px-6 py-8">
         <h2 className="font-display text-3xl text-charbon mb-10">La collection</h2>
@@ -99,8 +101,10 @@ export default function GolfPage() {
       </section>
 
 
+      <div className="max-w-7xl mx-auto px-6"><div className="border-t border-charbon/10" /></div>
+
       {/* CTA B2B */}
-      <section className="bg-charbon py-20 mt-20">
+      <section className="bg-charbon py-20 mt-8">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <p className="text-lin/40 text-xs tracking-widest uppercase font-mono mb-4">Clubs & pro shops</p>
           <h2 className="font-display text-lin text-4xl mb-6">Votre logo, gravé sur chaque crayon.</h2>

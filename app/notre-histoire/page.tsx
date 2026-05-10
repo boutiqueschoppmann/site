@@ -40,14 +40,18 @@ const values = [
 export default function NotreHistoirePage() {
   return (
     <div className="pt-16 md:pt-28 bg-lin min-h-screen">
+      {/* Breadcrumb */}
+      <div className="max-w-7xl mx-auto px-6 pt-6 pb-0">
+        <nav className="flex items-center gap-2 text-xs text-charbon/40 font-mono">
+          <a href="/" className="hover:text-charbon transition-colors">Accueil</a>
+          <span>/</span>
+          <span className="text-charbon/70">Notre histoire</span>
+        </nav>
+      </div>
+
       {/* Hero */}
-      <section className="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-2 gap-16 items-end">
+      <section className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-16 items-end">
         <div>
-          <nav className="flex items-center gap-2 text-xs text-charbon/40 font-mono mb-6">
-            <a href="/" className="hover:text-charbon transition-colors">Accueil</a>
-            <span>/</span>
-            <span className="text-charbon/70">Notre histoire</span>
-          </nav>
           <p className="text-xs text-cuir tracking-widest uppercase font-mono mb-6">Notre histoire</p>
           <h1 className="font-display text-5xl md:text-6xl text-charbon leading-tight">
             Une obsession québécoise pour les objets qui durent.

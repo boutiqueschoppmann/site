@@ -91,6 +91,8 @@ export default function CadeauxEntreprisesPage() {
         </div>
       </section>
 
+      <div className="max-w-7xl mx-auto px-6"><div className="border-t border-charbon/10" /></div>
+
       {/* Formulaire */}
       <section className="max-w-3xl mx-auto px-6 py-24">
         <h2 className="font-display text-4xl text-charbon mb-4">Demander un devis</h2>

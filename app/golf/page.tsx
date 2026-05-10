@@ -22,19 +22,31 @@ export default function GolfPage() {
   return (
     <div className="pt-16 md:pt-28 bg-lin min-h-screen">
       {/* Hero */}
-      <section className="relative bg-charbon min-h-[70vh] flex items-end overflow-hidden">
-        <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 w-full">
-          <p className="text-lin/40 text-xs tracking-widest uppercase font-mono mb-4">Gamme golf</p>
-          <h1 className="font-display text-lin text-5xl md:text-6xl max-w-xl leading-tight mb-4">
-            L&apos;objet de précision qui appartient à votre sac.
-          </h1>
-          <div className="flex gap-6 text-sm text-lin/60 mt-6">
-            <div>
-              <span className="font-mono text-xl text-lin block">17 CAD</span>Boîte hexagonale 3D
+      <section className="bg-charbon overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 py-16 md:py-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <p className="text-lin/40 text-xs tracking-widest uppercase font-mono mb-6">Gamme golf</p>
+            <h1 className="font-display text-lin text-5xl md:text-6xl leading-tight mb-6">
+              L&apos;objet de précision qui appartient à votre sac.
+            </h1>
+            <div className="flex gap-6 text-sm text-lin/60 mt-8">
+              <div>
+                <span className="font-mono text-xl text-lin block">17 CAD</span>Boîte hexagonale 3D
+              </div>
+              <div className="border-l border-lin/20 pl-6">
+                <span className="font-mono text-xl text-lin block">31 CAD</span>Étui en cuir
+              </div>
             </div>
-            <div className="border-l border-lin/20 pl-6">
-              <span className="font-mono text-xl text-lin block">31 CAD</span>Étui en cuir
-            </div>
+          </div>
+          <div className="relative aspect-square overflow-hidden">
+            <Image
+              src="/images/products/carnet-golf-schoppmann-crayon-sorti.jpeg"
+              alt="Carnet de golf Schoppmann avec crayon aluminium mine infinie"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority
+            />
           </div>
         </div>
       </section>

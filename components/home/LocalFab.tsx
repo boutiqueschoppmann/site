@@ -46,10 +46,10 @@ export default function LocalFab() {
 
         <Link
           href="/savoir-faire"
-          className="inline-flex items-center gap-2 text-sm text-charbon border-b border-charbon/30 pb-0.5 hover:border-charbon transition-colors"
+          className="group inline-flex items-center gap-2 text-sm text-charbon border-b border-charbon/30 pb-0.5 hover:border-charbon hover:gap-3 transition-all duration-200"
         >
           Notre savoir-faire
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="transition-transform duration-200 group-hover:translate-x-1">
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
         </Link>

@@ -35,10 +35,10 @@ export default function Collections() {
         <h2 className="font-display text-4xl md:text-5xl text-charbon">Nos collections</h2>
         <Link
           href="/boutique"
-          className="hidden md:inline-flex text-sm text-charbon/50 hover:text-charbon transition-colors gap-2 items-center"
+          className="group hidden md:inline-flex text-sm text-charbon/50 hover:text-charbon hover:gap-3 transition-all duration-200 gap-2 items-center"
         >
           Tout voir
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="transition-transform duration-200 group-hover:translate-x-1">
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
         </Link>

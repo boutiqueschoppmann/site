@@ -98,9 +98,9 @@ export default function Header() {
           {/* Panier desktop */}
           <Link
             href="/panier"
-            className="group hidden md:inline-flex items-center gap-2 text-sm border border-charbon px-4 py-2 hover:bg-charbon hover:text-lin transition-all duration-200"
+            className="group hidden md:inline-flex items-center gap-2 text-sm border border-charbon px-4 py-2 hover:bg-charbon hover:text-lin hover:gap-3 transition-all duration-200"
           >
-            <CartIcon />
+            <span className="transition-transform duration-200 group-hover:scale-110"><CartIcon /></span>
             Panier
             {totalItems > 0 && (
               <span className="flex items-center gap-2 border-l border-charbon/25 group-hover:border-lin/25 pl-2 transition-colors">

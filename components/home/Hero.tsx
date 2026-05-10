@@ -61,18 +61,21 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/boutique"
-                className="inline-flex items-center justify-center gap-2 bg-lin text-charbon px-8 py-4 text-sm tracking-wide font-medium hover:bg-alu transition-colors duration-200"
+                className="group inline-flex items-center justify-center gap-2 bg-lin text-charbon px-8 py-4 text-sm tracking-wide font-medium hover:bg-alu hover:gap-3 transition-all duration-200"
               >
                 Découvrir la collection
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="transition-transform duration-200 group-hover:translate-x-1">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </Link>
               <Link
                 href="/notre-histoire"
-                className="inline-flex items-center justify-center gap-2 border border-lin/30 text-lin px-8 py-4 text-sm tracking-wide hover:border-lin hover:bg-lin/10 transition-colors duration-200"
+                className="group inline-flex items-center justify-center gap-2 border border-lin/30 text-lin px-8 py-4 text-sm tracking-wide hover:border-lin hover:bg-lin/10 hover:gap-3 transition-all duration-200"
               >
                 Notre histoire
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="opacity-0 -translate-x-3 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
               </Link>
             </div>
           </div>

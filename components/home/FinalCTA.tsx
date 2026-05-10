@@ -15,10 +15,10 @@ export default function FinalCTA() {
         </p>
         <Link
           href="/boutique"
-          className="inline-flex items-center gap-3 bg-lin text-charbon px-10 py-5 text-sm tracking-wide font-medium hover:bg-alu transition-colors duration-200"
+          className="group inline-flex items-center gap-3 bg-lin text-charbon px-10 py-5 text-sm tracking-wide font-medium hover:bg-alu hover:gap-4 transition-all duration-200"
         >
           Voir la collection complète
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="transition-transform duration-200 group-hover:translate-x-1">
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
         </Link>

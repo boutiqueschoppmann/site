@@ -88,10 +88,10 @@ export default function NotreHistoirePage() {
       <section className="max-w-7xl mx-auto px-6 py-20 text-center">
         <Link
           href="/boutique"
-          className="inline-flex items-center gap-2 bg-charbon text-lin px-10 py-5 text-sm tracking-wide hover:bg-charbon/80 transition-colors"
+          className="group inline-flex items-center gap-2 bg-charbon text-lin px-10 py-5 text-sm tracking-wide hover:bg-charbon/80 hover:gap-3 transition-all duration-200"
         >
           Découvrir nos crayons
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="transition-transform duration-200 group-hover:translate-x-1">
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
         </Link>

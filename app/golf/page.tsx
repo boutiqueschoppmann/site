@@ -91,8 +91,11 @@ export default function GolfPage() {
           <p className="text-lin/40 text-xs tracking-widest uppercase font-mono mb-4">Clubs & pro shops</p>
           <h2 className="font-display text-lin text-4xl mb-6">Votre logo, gravé sur chaque crayon.</h2>
           <p className="text-lin/60 mb-8">Commandes à partir de 25 unités. Tarifs dégressifs.</p>
-          <Link href="/cadeaux-entreprises" className="inline-flex items-center gap-2 border border-lin/30 text-lin px-8 py-4 text-sm hover:border-lin/60 transition-colors">
+          <Link href="/cadeaux-entreprises" className="group inline-flex items-center gap-2 border border-lin/30 text-lin px-8 py-4 text-sm hover:border-lin hover:bg-lin/10 hover:gap-3 transition-all duration-200">
             Demander un devis
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="opacity-0 -translate-x-3 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
           </Link>
         </div>
       </section>

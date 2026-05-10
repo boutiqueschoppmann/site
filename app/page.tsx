@@ -60,11 +60,17 @@ export default function HomePage() {
 
       <Reassurance />
       <Collections />
+      <div className="max-w-7xl mx-auto px-6"><div className="border-t border-charbon/10" /></div>
       <Storytelling />
+      <div className="max-w-7xl mx-auto px-6"><div className="border-t border-charbon/10" /></div>
       <Bestsellers />
+      <div className="max-w-7xl mx-auto px-6"><div className="border-t border-charbon/10" /></div>
       <LocalFab />
+      <div className="max-w-7xl mx-auto px-6"><div className="border-t border-charbon/10" /></div>
       <Testimonials />
+      <div className="max-w-7xl mx-auto px-6"><div className="border-t border-charbon/10" /></div>
       <HomeFAQ />
+      <div className="max-w-7xl mx-auto px-6"><div className="border-t border-charbon/10" /></div>
       <FinalCTA />
     </>
   );

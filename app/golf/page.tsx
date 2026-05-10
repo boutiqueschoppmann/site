@@ -51,7 +51,7 @@ export default function GolfPage() {
         </div>
       </section>
 
-      <div className="border-t border-charbon/15" />
+      <div className="max-w-7xl mx-auto px-6"><div className="border-t border-charbon/10" /></div>
 
       {/* Pitch */}
       <section className="max-w-3xl mx-auto px-6 py-16 text-center">
